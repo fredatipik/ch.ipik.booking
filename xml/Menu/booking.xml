@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<menu>
+
+  <!-- Vue globale admin -->
+  <item>
+    <path>civicrm/booking/appointments</path>
+    <page_callback>CRM\Booking\Page\AppointmentList</page_callback>
+    <title>Rendez-vous</title>
+    <access_arguments>access booking</access_arguments>
+    <is_public>false</is_public>
+  </item>
+
+  <!-- Agenda thérapeute (onglet fiche contact) -->
+  <item>
+    <path>civicrm/booking/therapist-agenda</path>
+    <page_callback>CRM\Booking\Page\TherapistAgenda</page_callback>
+    <title>Agenda</title>
+    <access_arguments>access booking</access_arguments>
+    <is_public>false</is_public>
+  </item>
+
+  <!-- Actions RDV -->
+  <item>
+    <path>civicrm/booking/appointment/cancel</path>
+    <page_callback>CRM\Booking\Page\AppointmentAction</page_callback>
+    <title>Annuler le rendez-vous</title>
+    <access_arguments>access booking</access_arguments>
+    <is_public>false</is_public>
+  </item>
+
+  <item>
+    <path>civicrm/booking/appointment/complete</path>
+    <page_callback>CRM\Booking\Page\AppointmentAction</page_callback>
+    <title>Terminer le rendez-vous</title>
+    <access_arguments>access booking</access_arguments>
+    <is_public>false</is_public>
+  </item>
+
+  <!-- Facturation -->
+  <item>
+    <path>civicrm/booking/invoice/generate</path>
+    <page_callback>CRM\Booking\Page\InvoiceAction</page_callback>
+    <title>Générer la facture</title>
+    <access_arguments>access booking</access_arguments>
+    <is_public>false</is_public>
+  </item>
+
+  <!-- Gestion disponibilités -->
+  <item>
+    <path>civicrm/booking/availability/add</path>
+    <page_callback>CRM\Booking\Form\Availability</page_callback>
+    <title>Ajouter une disponibilité</title>
+    <access_arguments>access booking</access_arguments>
+    <is_public>false</is_public>
+  </item>
+
+  <item>
+    <path>civicrm/booking/availability/delete</path>
+    <page_callback>CRM\Booking\Page\AppointmentAction</page_callback>
+    <title>Supprimer une disponibilité</title>
+    <access_arguments>access booking</access_arguments>
+    <is_public>false</is_public>
+  </item>
+
+  <!-- Exceptions (congés) -->
+  <item>
+    <path>civicrm/booking/exception/add</path>
+    <page_callback>CRM\Booking\Form\ExceptionForm</page_callback>
+    <title>Ajouter un congé</title>
+    <access_arguments>access booking</access_arguments>
+    <is_public>false</is_public>
+  </item>
+
+  <item>
+    <path>civicrm/booking/exception/delete</path>
+    <page_callback>CRM\Booking\Page\AppointmentAction</page_callback>
+    <title>Supprimer une exception</title>
+    <access_arguments>access booking</access_arguments>
+    <is_public>false</is_public>
+  </item>
+
+  <!-- Admin : types de RDV -->
+  <item>
+    <path>civicrm/booking/appointment-types</path>
+    <page_callback>CRM\Booking\Page\AppointmentTypeList</page_callback>
+    <title>Types de rendez-vous</title>
+    <access_arguments>administer booking</access_arguments>
+    <is_public>false</is_public>
+  </item>
+
+  <item>
+    <path>civicrm/booking/appointment-type/edit</path>
+    <page_callback>CRM\Booking\Form\AppointmentType</page_callback>
+    <title>Éditer un type de rendez-vous</title>
+    <access_arguments>administer booking</access_arguments>
+    <is_public>false</is_public>
+  </item>
+
+  <!-- Admin : thérapeutes -->
+  <item>
+    <path>civicrm/booking/therapists</path>
+    <page_callback>CRM\Booking\Page\TherapistList</page_callback>
+    <title>Thérapeutes</title>
+    <access_arguments>administer booking</access_arguments>
+    <is_public>false</is_public>
+  </item>
+
+  <item>
+    <path>civicrm/booking/therapist/edit</path>
+    <page_callback>CRM\Booking\Form\Therapist</page_callback>
+    <title>Éditer un thérapeute</title>
+    <access_arguments>administer booking</access_arguments>
+    <is_public>false</is_public>
+  </item>
+
+  <!-- Paramètres -->
+  <item>
+    <path>civicrm/booking/settings</path>
+    <page_callback>CRM\Booking\Form\Settings</page_callback>
+    <title>Paramètres Booking</title>
+    <access_arguments>administer booking</access_arguments>
+    <is_public>false</is_public>
+  </item>
+
+</menu>

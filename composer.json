@@ -1,0 +1,20 @@
+{
+  "name": "ipik/ch.ipik.booking",
+  "description": "Extension CiviCRM de prise de rendez-vous pour cabinet thérapeutique",
+  "type": "civicrm-extension",
+  "license": "AGPL-3.0",
+  "require": {
+    "php": ">=8.1",
+    "ext-curl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "CRM\\Booking\\": "CRM/Booking/",
+      "Civi\\Api4\\": "Civi/Api4/",
+      "api\\v4\\": "api/v4/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true
+  }
+}

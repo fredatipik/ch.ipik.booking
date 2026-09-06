@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<extension key="ch.ipik.booking" type="module">
+  <file>booking</file>
+  <downloadUrl>https://github.com/fredatipik/ch.ipik.booking</downloadUrl>
+  <name>Booking IPIK</name>
+  <description>Prise de rendez-vous pour cabinet thérapeutique — multi-thérapeutes, types de RDV configurables, formulaire public WordPress, synchronisation CalDAV.</description>
+  <license>AGPL-3.0</license>
+  <maintainer>
+    <author>Frédéric / IPIK</author>
+    <email>fred@ipik.ch</email>
+  </maintainer>
+  <version>0.4.16</version>
+  <versions>
+    <ver>0.4.16</ver>
+  </versions>
+  <civix>
+    <namespace>CRM/Booking</namespace>
+  </civix>
+  <compatibility>
+    <ver>5.60</ver>
+  </compatibility>
+</extension>

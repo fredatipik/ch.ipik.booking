@@ -1,0 +1,12 @@
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE IF EXISTS `civicrm_booking_settings`;
+DROP TABLE IF EXISTS `civicrm_booking_appointment`;
+DROP TABLE IF EXISTS `civicrm_booking_exception`;
+DROP TABLE IF EXISTS `civicrm_booking_availability`;
+DROP TABLE IF EXISTS `civicrm_booking_type_therapist`;
+DROP TABLE IF EXISTS `civicrm_booking_appointment_type`;
+DROP TABLE IF EXISTS `civicrm_booking_workday`;
+DROP TABLE IF EXISTS `civicrm_booking_location`;
+DROP TABLE IF EXISTS `civicrm_booking_therapist`;
+DROP TABLE IF EXISTS `civicrm_booking_migrations`;
+SET FOREIGN_KEY_CHECKS = 1;

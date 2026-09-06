@@ -1,0 +1,326 @@
+/* ch.ipik.booking — booking.css */
+/* Variables héritées du thème WP — surchargeables */
+:root {
+  --ipik-primary:    #3b82f6;
+  --ipik-success:    #10b981;
+  --ipik-error:      #ef4444;
+  --ipik-warning:    #f59e0b;
+  --ipik-gray-100:   #f3f4f6;
+  --ipik-gray-200:   #e5e7eb;
+  --ipik-gray-500:   #6b7280;
+  --ipik-gray-900:   #111827;
+  --ipik-radius:     8px;
+  --ipik-shadow:     0 1px 3px rgba(0,0,0,.1);
+  --ipik-transition: 150ms ease;
+}
+
+/* ---- Conteneur principal ---- */
+.ipik-booking {
+  max-width: 680px;
+  margin: 0 auto;
+  font-family: inherit;
+  color: var(--ipik-gray-900);
+}
+
+/* ---- Étapes ---- */
+.ipik-step--hidden { display: none; }
+.ipik-step__title {
+  margin: 0 0 1.25rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+/* ---- Bouton retour ---- */
+.ipik-back {
+  background: none;
+  border: none;
+  color: var(--ipik-primary);
+  cursor: pointer;
+  font-size: .875rem;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+.ipik-back:hover { text-decoration: underline; }
+
+/* ---- Cartes type de RDV ---- */
+.ipik-type-list { display: flex; flex-direction: column; gap: .75rem; }
+
+.ipik-type-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto;
+  gap: .25rem .75rem;
+  align-items: center;
+  background: #fff;
+  border: 2px solid var(--ipik-gray-200);
+  border-radius: var(--ipik-radius);
+  box-shadow: var(--ipik-shadow);
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  transition: border-color var(--ipik-transition), box-shadow var(--ipik-transition);
+}
+.ipik-type-card:hover, .ipik-type-card:focus-visible {
+  border-color: var(--type-color, var(--ipik-primary));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--type-color, var(--ipik-primary)) 20%, transparent);
+  outline: none;
+}
+.ipik-type-card--selected {
+  border-color: var(--type-color, var(--ipik-primary));
+  background: color-mix(in srgb, var(--type-color, var(--ipik-primary)) 6%, #fff);
+}
+.ipik-type-card__dot {
+  grid-row: 1 / 3;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--type-color, var(--ipik-primary));
+}
+.ipik-type-card__label { font-weight: 600; }
+.ipik-type-card__duration {
+  font-size: .8125rem;
+  color: var(--ipik-gray-500);
+  white-space: nowrap;
+}
+.ipik-type-card__desc {
+  grid-column: 2 / 4;
+  font-size: .875rem;
+  color: var(--ipik-gray-500);
+  margin-top: .125rem;
+}
+
+/* ---- Calendrier ---- */
+.ipik-calendar {
+  background: #fff;
+  border: 1px solid var(--ipik-gray-200);
+  border-radius: var(--ipik-radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.ipik-calendar__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .75rem;
+  font-weight: 600;
+}
+.ipik-calendar__nav button {
+  background: none; border: none; cursor: pointer;
+  font-size: 1.25rem; padding: .25rem .5rem;
+  color: var(--ipik-primary);
+  border-radius: 4px;
+  transition: background var(--ipik-transition);
+}
+.ipik-calendar__nav button:hover { background: var(--ipik-gray-100); }
+
+.ipik-calendar__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+.ipik-cal__header {
+  text-align: center;
+  font-size: .75rem;
+  color: var(--ipik-gray-500);
+  padding: .25rem 0;
+  font-weight: 600;
+}
+.ipik-cal__day {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 6px;
+  font-size: .875rem;
+  cursor: default;
+  background: transparent;
+  transition: background var(--ipik-transition), color var(--ipik-transition);
+  display: flex; align-items: center; justify-content: center;
+}
+.ipik-cal__day--available {
+  color: var(--ipik-primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+.ipik-cal__day--available:hover, .ipik-cal__day--available:focus-visible {
+  background: var(--ipik-gray-100);
+  outline: none;
+}
+.ipik-cal__day--selected {
+  background: var(--ipik-primary) !important;
+  color: #fff !important;
+}
+.ipik-cal__day--unavailable {
+  color: var(--ipik-gray-200);
+}
+.ipik-cal__day--empty { visibility: hidden; }
+
+/* ---- Créneaux ---- */
+.ipik-slots__hint {
+  color: var(--ipik-gray-500);
+  font-size: .875rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+.ipik-slots__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .5rem;
+}
+.ipik-slot-btn {
+  background: #fff;
+  border: 2px solid var(--ipik-gray-200);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .875rem;
+  font-weight: 500;
+  padding: .4rem .85rem;
+  transition: border-color var(--ipik-transition), background var(--ipik-transition);
+}
+.ipik-slot-btn:hover, .ipik-slot-btn:focus-visible {
+  border-color: var(--ipik-primary);
+  outline: none;
+}
+.ipik-slot-btn--selected {
+  background: var(--ipik-primary);
+  border-color: var(--ipik-primary);
+  color: #fff;
+}
+
+/* ---- Récapitulatif ---- */
+.ipik-summary {
+  background: var(--ipik-gray-100);
+  border-radius: var(--ipik-radius);
+  padding: .75rem 1rem;
+  margin-bottom: 1.25rem;
+  font-size: .9375rem;
+}
+.ipik-summary__text::before { content: '📅 '; }
+
+/* ---- Email gate ---- */
+.ipik-email-gate {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-radius: var(--ipik-radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.ipik-email-gate__msg { margin: 0 0 .75rem; font-size: .9rem; }
+.ipik-gate-msg--error { color: var(--ipik-error); font-size: .875rem; margin-top: .5rem; }
+.ipik-gate-msg--info  { color: var(--ipik-gray-500); font-size: .875rem; margin-top: .5rem; }
+
+/* ---- Formulaire contact ---- */
+.ipik-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.ipik-field { display: flex; flex-direction: column; gap: .35rem; }
+.ipik-field--full { grid-column: 1 / -1; }
+.ipik-field label { font-size: .875rem; font-weight: 500; }
+.ipik-field input,
+.ipik-field textarea {
+  background: #fff;
+  border: 1.5px solid var(--ipik-gray-200);
+  border-radius: 6px;
+  font-size: .9375rem;
+  padding: .5rem .75rem;
+  transition: border-color var(--ipik-transition), box-shadow var(--ipik-transition);
+  width: 100%;
+  box-sizing: border-box;
+}
+.ipik-field input:focus,
+.ipik-field textarea:focus {
+  border-color: var(--ipik-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ipik-primary) 20%, transparent);
+  outline: none;
+}
+
+/* ---- Erreur formulaire ---- */
+.ipik-error {
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  border-radius: 6px;
+  color: var(--ipik-error);
+  font-size: .875rem;
+  margin: 1rem 0 0;
+  padding: .75rem 1rem;
+}
+
+/* ---- Bouton submit ---- */
+.ipik-submit {
+  background: var(--ipik-primary);
+  border: none;
+  border-radius: var(--ipik-radius);
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  padding: .75rem 1.75rem;
+  transition: opacity var(--ipik-transition);
+  width: 100%;
+  justify-content: center;
+}
+.ipik-submit:hover:not(:disabled) { opacity: .88; }
+.ipik-submit:disabled { opacity: .55; cursor: not-allowed; }
+.ipik-submit__spinner {
+  display: none;
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: ipik-spin .6s linear infinite;
+}
+@keyframes ipik-spin { to { transform: rotate(360deg); } }
+
+/* ---- Confirmation ---- */
+.ipik-confirm {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.ipik-confirm__icon {
+  background: var(--ipik-success);
+  border-radius: 50%;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  height: 4rem; width: 4rem;
+  margin-bottom: 1rem;
+}
+.ipik-confirm__title { font-size: 1.25rem; font-weight: 700; margin: 0 0 .5rem; }
+.ipik-confirm__msg   { color: var(--ipik-gray-500); margin-bottom: 1.5rem; }
+#ipik-new-booking {
+  background: none;
+  border: 2px solid var(--ipik-primary);
+  border-radius: var(--ipik-radius);
+  color: var(--ipik-primary);
+  cursor: pointer;
+  font-size: .9375rem;
+  font-weight: 600;
+  padding: .6rem 1.5rem;
+  transition: background var(--ipik-transition), color var(--ipik-transition);
+}
+#ipik-new-booking:hover { background: var(--ipik-primary); color: #fff; }
+
+/* ---- Responsive ---- */
+@media (max-width: 520px) {
+  .ipik-fields { grid-template-columns: 1fr; }
+  .ipik-field--full { grid-column: 1; }
+}
+
+/* ---- Menu CiviCRM Booking ---- */
+/* Icône calendrier devant "Booking" dans le menu nav */
+li.crm-nav-item a[href*="civicrm/booking/appointments"]:first-of-type::before,
+#civicrm-menu li a[href*="civicrm/booking"]:not([href*="/"]):not([href*="types"]):not([href*="therapist"]):not([href*="settings"])::before {
+  content: '📅 ';
+}
+
+/* Supprimer les flèches (▸) des sous-items du menu Booking */
+#civicrm-menu .crm-nav-item ul li a::after,
+#civicrm-menu .crm-nav-item ul li span.crm-nav-link::after {
+  content: none !important;
+}
