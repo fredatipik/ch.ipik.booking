@@ -1,0 +1,17 @@
+# Dépendances installées par composer
+vendor/
+composer.lock
+
+# Archives de distribution
+*.tar.gz
+*.zip
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.idea/
+.vscode/
+*.swp
+*~
