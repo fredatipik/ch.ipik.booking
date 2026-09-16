@@ -226,7 +226,7 @@ class InformaniakCalDavProvider implements CalendarProviderInterface {
       CURLOPT_TIMEOUT        => self::TIMEOUT,
       CURLOPT_CONNECTTIMEOUT => 5,
       CURLOPT_HTTPHEADER     => array_merge(
-        ['User-Agent: ch.ipik.booking/0.4.16'],
+        ['User-Agent: ch.ipik.booking/0.4.17'],
         $headers
       ),
     ];

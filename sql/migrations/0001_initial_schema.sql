@@ -141,4 +141,8 @@ INSERT IGNORE INTO `civicrm_booking_settings` (`key`, `value`) VALUES
   ('default_start_time', '09:00'),
   ('default_end_time', '17:00'),
   ('create_activities', '1'),
-  ('from_email', '');
+  ('from_email', ''),
+  ('msg_email_gate', ''),
+  ('msg_contact_not_found', ''),
+  ('msg_no_slots', ''),
+  ('msg_confirmation', '');

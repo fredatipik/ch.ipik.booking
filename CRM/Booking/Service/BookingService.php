@@ -242,7 +242,7 @@ class BookingService {
     if ($type['requires_existing_contact'] && !$existingContactId) {
       return [
         'success' => FALSE,
-        'error'   => 'Ce type de rendez-vous est réservé aux patients existants. Veuillez nous contacter directement.',
+        'error'   => MessageService::get(MessageService::CONTACT_NOT_FOUND),
       ];
     }
 

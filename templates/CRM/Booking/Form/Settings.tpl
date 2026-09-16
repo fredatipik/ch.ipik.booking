@@ -74,6 +74,23 @@
     <div class="clear"></div>
   </div>
 
+  {* ---- Textes du formulaire public ---- *}
+  <h4 class="ipik-h4">{ts}Textes du formulaire public{/ts}</h4>
+  <p class="description">
+    {ts}Ces phrases s'adressent directement aux patients. Laissez vide pour conserver le texte proposé, affiché en gris dans le champ.{/ts}
+  </p>
+
+  {foreach from=$messageFields key=fieldKey item=def}
+  <div class="crm-section">
+    <div class="label">{$form.$fieldKey.label}</div>
+    <div class="content">
+      {$form.$fieldKey.html}
+      <span class="description">{$def.help}</span>
+    </div>
+    <div class="clear"></div>
+  </div>
+  {/foreach}
+
   {* ---- Envoi des e-mails ---- *}
   <h4 class="ipik-h4">{ts}Envoi des e-mails{/ts}</h4>
 

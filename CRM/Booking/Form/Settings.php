@@ -3,6 +3,7 @@ namespace CRM\Booking\Form;
 
 use CRM\Booking\BAO\Therapist;
 use CRM\Booking\Service\CalendarProvider\InformaniakCalDavProvider;
+use CRM\Booking\Service\MessageService;
 use CRM\Booking\Service\TemplateService;
 use CRM\Booking\Utils;
 
@@ -43,6 +44,16 @@ class Settings extends \CRM_Core_Form {
     $this->add('text', 'reminder_hours_before', ts('Rappel email (heures avant le RDV)'), ['size' => 4], TRUE);
     $this->addRule('reminder_hours_before', ts('Entier positif requis.'), 'positiveInteger');
 
+    // ---- Textes du formulaire public ----
+    foreach (MessageService::definitions() as $key => $def) {
+      $this->add('textarea', $key, $def['label'], [
+        'rows'        => 2,
+        'cols'        => 60,
+        'placeholder' => $def['default'],
+      ]);
+    }
+    $this->assign('messageFields', MessageService::definitions());
+
     // ---- Envoi des e-mails ----
     // Liste des adresses déclarées dans CiviCRM, comme pour un envoi individuel
     $this->add('select', 'from_email', ts('Adresse d\'expédition'),
@@ -70,7 +81,12 @@ class Settings extends \CRM_Core_Form {
   }
 
   public function setDefaultValues(): array {
-    return [
+    $defaults = [];
+    foreach (array_keys(MessageService::definitions()) as $key) {
+      $defaults[$key] = Utils::getSetting($key, '');
+    }
+
+    return $defaults + [
       'create_activities'              => (int) Utils::getSetting('create_activities', 1),
       'availability_mode'              => Utils::getSetting('availability_mode', 'weekly'),
       'default_start_time'             => Utils::getSetting('default_start_time', '09:00'),
@@ -105,6 +121,10 @@ class Settings extends \CRM_Core_Form {
       if (isset($values[$key])) {
         Utils::setSetting($key, $values[$key]);
       }
+    }
+
+    foreach (array_keys(MessageService::definitions()) as $key) {
+      Utils::setSetting($key, trim($values[$key] ?? ''));
     }
 
     Utils::setSetting('create_activities', !empty($values['create_activities']) ? '1' : '0');

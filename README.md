@@ -1,77 +1,81 @@
-# Booking IPIK
+# Practice Booking
 
-Extension CiviCRM de prise de rendez-vous, conçue pour un cabinet réunissant
-plusieurs intervenant·es qui se partagent un ou plusieurs locaux.
+Appointment booking for CiviCRM, designed for practices where several
+practitioners share one or more consulting rooms.
 
-Les patients réservent depuis un formulaire WordPress, les rendez-vous
-s'inscrivent dans CiviCRM et se synchronisent avec les agendas CalDAV.
+Patients book through a WordPress form; appointments are recorded in CiviCRM
+and synchronised with CalDAV calendars.
 
-## Ce que fait l'extension
+> **Interface language** — the administrative interface and the public form
+> are currently in French. An English version is planned; contributions are
+> welcome.
 
-**Réservation en ligne** — Un shortcode WordPress affiche un formulaire en
-quatre étapes : type de rendez-vous, créneau, coordonnées, confirmation. Le
-créneau proposé tient compte des disponibilités déclarées, des rendez-vous
-déjà pris, des agendas personnels et de l'occupation des locaux.
+## What it does
 
-L'intervenant·e n'est jamais choisi·e par le patient : le système l'attribue
-selon une stratégie configurable — rotation équitable, charge la plus faible,
-ou tirage au sort.
+**Online booking** — A WordPress shortcode renders a four-step form:
+appointment type, time slot, contact details, confirmation. Available slots
+account for declared availability, existing appointments, personal calendars
+and room occupancy.
 
-**Deux façons de déclarer ses disponibilités.** Le mode *horaires
-hebdomadaires* convient aux semaines régulières, avec congés et créneaux
-exceptionnels en complément. Le mode *jours de travail déclarés* s'adresse
-aux équipes irrégulières : un calendrier de six mois où chaque journée
-travaillée se coche d'un clic, avec ses horaires et son local. Le mode se
-règle globalement, et chaque intervenant·e peut adopter l'autre.
+Patients never choose their practitioner: the system assigns one according to
+a configurable strategy — round-robin, least loaded, or random.
 
-**Locaux.** Un local possède son propre agenda. Un rendez-vous qui s'y tient
-le rend indisponible pour tous, et l'agenda du local permet réciproquement de
-bloquer des plages sans passer par une réservation. Les événements qui y sont
-déposés ne portent que le nom de l'intervenant·e.
+**Two ways to declare availability.** *Weekly hours* suits regular schedules,
+with holidays and one-off slots as exceptions. *Declared working days* suits
+irregular teams: a six-month calendar where each working day is ticked with
+its hours and room. The mode is set globally, and each practitioner may use
+the other one.
 
-**Synchronisation CalDAV.** Les rendez-vous alimentent l'agenda personnel de
-l'intervenant·e et celui du local. Les événements qui s'y trouvent déjà
-bloquent les créneaux correspondants. La synchronisation ne conditionne
-jamais l'enregistrement : si un agenda est injoignable, le rendez-vous est
-créé et l'incident consigné.
+**Rooms.** A room has its own calendar. An appointment held there makes the
+slot unavailable to everyone, and conversely the room calendar can be used to
+block time without going through a booking. Events written to a room calendar
+carry only the practitioner's name.
 
-**Backoffice.** Création de rendez-vous au téléphone, avec choix parmi les
-créneaux libres ou saisie libre pour les urgences. Liste filtrable de tous
-les rendez-vous, agenda par intervenant·e, onglet « Rendez-vous » sur la
-fiche patient, et un dashlet des prochains rendez-vous.
+**CalDAV synchronisation.** Appointments are written to the practitioner's
+personal calendar and to the room calendar. Events already present there block
+the corresponding slots. Synchronisation never conditions the booking itself:
+if a calendar is unreachable, the appointment is still recorded and the
+failure logged.
 
-**Facturation.** Depuis un rendez-vous effectué, deux boutons mènent au
-formulaire de contribution CiviCRM ou à celui de facture QR suisse, contact
-pré-rempli. Le type financier et le statut par défaut se règlent une fois
-pour toutes.
+**Back office.** Create appointments over the phone, choosing among free slots
+or entering a date and time directly for urgent cases. Filterable list of all
+appointments, per-practitioner agenda, a *Appointments* tab on the patient
+record, and a dashlet of upcoming appointments.
 
-**E-mails.** Confirmation au patient et à l'intervenant·e, rappel avant le
-rendez-vous, notification d'annulation aux deux parties. Les contenus sont
-des modèles CiviCRM modifiables, avec des tokens propres à l'extension en
-plus des tokens standards.
+**Billing.** From a completed appointment, two buttons lead to the CiviCRM
+contribution form or to the Swiss QR invoice form, with the contact
+pre-filled. Default financial type and contribution status are configured
+once.
 
-## Confidentialité
+**Emails.** Confirmation to the patient and to the practitioner, reminder
+before the appointment, cancellation notice to both parties. Contents are
+editable CiviCRM message templates, with extension-specific tokens alongside
+the standard ones.
 
-Un rendez-vous chez un thérapeute est une information médicale. Quelques
-garde-fous sont posés par défaut : le dashlet ne montre que les rendez-vous
-de l'intervenant·e connecté·e, jamais ceux des autres, y compris pour un
-compte administrateur. Le sujet des activités CiviCRM ne porte que le type
-de rendez-vous, jamais le nom du patient. Les agendas de locaux, partagés
-entre plusieurs personnes, ne reçoivent que le nom de l'intervenant·e.
+## Privacy
 
-La création d'activités peut être désactivée si la seule existence d'un
-rendez-vous ne doit pas apparaître dans les calendriers partagés.
+An appointment with a therapist is medical information. A few safeguards are
+in place by default.
 
-## Prérequis
+The dashlet only shows the appointments of the logged-in practitioner, never
+those of others — including for an administrator account. The subject of
+CiviCRM activities carries only the appointment type, never the patient's
+name. Room calendars, shared among several people, receive only the
+practitioner's name.
 
-- CiviCRM 5.60 ou plus récent, testé sur 6.15
-- WordPress 6.0 ou plus récent
-- PHP 8.1 ou plus récent
-- Extension cURL pour la synchronisation CalDAV
+Activity creation can be disabled entirely when the mere existence of an
+appointment should not appear in shared calendars.
 
-Facultatif : [`ch.ipik.swissQRinvoice`](https://github.com/fredatipik/ch.ipik.swissQRinvoice)
-pour la facturation QR suisse, et `ch.ipik.smtprouter` pour router les envois
-selon l'adresse d'expédition.
+## Requirements
+
+- CiviCRM 5.60 or later, tested on 6.15
+- WordPress 6.0 or later
+- PHP 8.1 or later
+- cURL extension for CalDAV synchronisation
+
+Optional: [`ch.ipik.swissQRinvoice`](https://github.com/fredatipik/ch.ipik.swissQRinvoice)
+for Swiss QR invoicing, and `ch.ipik.smtprouter` to route outgoing mail by
+sender address.
 
 ## Installation
 
@@ -81,12 +85,18 @@ tar xzf ch.ipik.booking-x.y.z.tar.gz
 cv ext:enable ch.ipik.booking
 ```
 
-Puis **Administration → Extensions → Booking IPIK → Installer**.
+Then **Administer → System Settings → Extensions → Practice Booking →
+Install**.
 
-La configuration complète est décrite dans [INSTALL.md](INSTALL.md) :
-locaux, intervenant·es, disponibilités, types de rendez-vous, agendas CalDAV,
-facturation, formulaire public, modèles d'e-mail.
+Full configuration is described in [INSTALL.md](INSTALL.md): rooms,
+practitioners, availability, appointment types, CalDAV calendars, billing,
+public form, message templates.
 
-## Licence
+## Status
 
-AGPL-3.0. Voir [LICENSE](LICENSE).
+Beta. In production on two sites since September 2026. The data model is
+stable; the interface still evolves.
+
+## License
+
+AGPL-3.0. See [LICENSE](LICENSE).

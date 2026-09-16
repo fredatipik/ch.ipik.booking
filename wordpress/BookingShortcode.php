@@ -4,6 +4,7 @@ namespace CRM\Booking\WordPress;
 use CRM\Booking\BAO\AppointmentType;
 use CRM\Booking\Service\SlotService;
 use CRM\Booking\Service\BookingService;
+use CRM\Booking\Service\MessageService;
 use CRM\Booking\Utils;
 
 /**
@@ -30,8 +31,8 @@ class BookingShortcode {
 
     $nonce = wp_create_nonce('ipik_booking_nonce');
 
-    wp_enqueue_style('ipik-booking', Utils::resourceUrl() . '/css/booking.css', [], '0.4.16');
-    wp_enqueue_script('ipik-booking', Utils::resourceUrl() . '/js/booking-form.js', [], '0.4.16', TRUE);
+    wp_enqueue_style('ipik-booking', Utils::resourceUrl() . '/css/booking.css', [], '0.4.17');
+    wp_enqueue_script('ipik-booking', Utils::resourceUrl() . '/js/booking-form.js', [], '0.4.17', TRUE);
 
     // Données utilisateur connecté pour pré-remplissage
     $currentUser = NULL;
@@ -56,16 +57,18 @@ class BookingShortcode {
         'selectType'      => __('Choisissez un type de rendez-vous', 'ipik-booking'),
         'selectDate'      => __('Sélectionnez une date pour voir les créneaux disponibles.', 'ipik-booking'),
         'selectSlot'      => __('Choisissez un créneau', 'ipik-booking'),
-        'noSlots'         => __('Aucun créneau disponible sur cette période.', 'ipik-booking'),
+        'noSlots'         => MessageService::get(MessageService::NO_SLOTS),
         'loading'         => __('Chargement…', 'ipik-booking'),
         'errorGeneric'    => __('Une erreur est survenue. Veuillez réessayer.', 'ipik-booking'),
         'confirmSuccess'  => __('Votre rendez-vous est confirmé ! Un email de confirmation vous a été envoyé.', 'ipik-booking'),
         'emailRequired'   => __('Veuillez saisir votre email pour vérifier votre éligibilité.', 'ipik-booking'),
-        'contactNotFound' => __('Ce type de rendez-vous est réservé aux patients existants. Contactez-nous directement.', 'ipik-booking'),
+        'contactNotFound' => MessageService::get(MessageService::CONTACT_NOT_FOUND),
       ],
     ]);
 
-    $types = AppointmentType::getAll();
+    $types    = AppointmentType::getAll();
+    $messages = MessageService::all();
+
     ob_start();
     // Injecter le nonce dans le formulaire HTML via un champ hidden
     echo '<input type="hidden" id="ipik-nonce-value" value="' . esc_attr($nonce) . '" />';

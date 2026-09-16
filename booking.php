@@ -1,6 +1,6 @@
 <?php
 /**
- * ch.ipik.booking v0.4.16 — Extension CiviCRM de prise de rendez-vous
+ * ch.ipik.booking v0.4.17 — Extension CiviCRM de prise de rendez-vous
  * Fichier principal — hooks CiviCRM
  */
 
@@ -44,6 +44,7 @@ function _booking_load_classes(): void {
   if (!class_exists('CRM\Booking\Service\TherapistSelector\TherapistSelectorFactory', FALSE)) require_once $d . '/CRM/Booking/Service/TherapistSelector/TherapistSelectorFactory.php';
   if (!class_exists('CRM\Booking\Service\SlotService', FALSE))                           require_once $d . '/CRM/Booking/Service/SlotService.php';
   if (!class_exists('CRM\Booking\Service\TemplateService', FALSE))                       require_once $d . '/CRM/Booking/Service/TemplateService.php';
+  if (!class_exists('CRM\Booking\Service\MessageService', FALSE))                    require_once $d . '/CRM/Booking/Service/MessageService.php';
   if (!class_exists('CRM\Booking\Service\NotificationService', FALSE))                   require_once $d . '/CRM/Booking/Service/NotificationService.php';
   if (!class_exists('CRM\Booking\Service\InvoiceService', FALSE))                        require_once $d . '/CRM/Booking/Service/InvoiceService.php';
   if (!class_exists('CRM\Booking\Service\BookingService', FALSE))                        require_once $d . '/CRM/Booking/Service/BookingService.php';

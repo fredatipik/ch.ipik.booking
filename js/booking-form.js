@@ -1,5 +1,5 @@
 /**
- * ch.ipik.booking v0.4.16 — booking-form.js
+ * ch.ipik.booking v0.4.17 — booking-form.js
  * Formulaire public de prise de rendez-vous.
  */
 (function () {
