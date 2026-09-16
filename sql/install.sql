@@ -1,4 +1,4 @@
--- ch.ipik.booking — install.sql
+-- ch.ipik.practicebooking — install.sql
 -- Tables créées à l'activation de l'extension
 
 -- Thérapeutes

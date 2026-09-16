@@ -31,8 +31,8 @@ class BookingShortcode {
 
     $nonce = wp_create_nonce('ipik_booking_nonce');
 
-    wp_enqueue_style('ipik-booking', Utils::resourceUrl() . '/css/booking.css', [], '0.4.17');
-    wp_enqueue_script('ipik-booking', Utils::resourceUrl() . '/js/booking-form.js', [], '0.4.17', TRUE);
+    wp_enqueue_style('ipik-booking', Utils::resourceUrl() . '/css/booking.css', [], '0.5.0');
+    wp_enqueue_script('ipik-booking', Utils::resourceUrl() . '/js/booking-form.js', [], '0.5.0', TRUE);
 
     // Données utilisateur connecté pour pré-remplissage
     $currentUser = NULL;

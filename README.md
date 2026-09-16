@@ -81,8 +81,8 @@ sender address.
 
 ```bash
 cd [civicrm]/ext/
-tar xzf ch.ipik.booking-x.y.z.tar.gz
-cv ext:enable ch.ipik.booking
+tar xzf ch.ipik.practicebooking-x.y.z.tar.gz
+cv ext:enable ch.ipik.practicebooking
 ```
 
 Then **Administer → System Settings → Extensions → Practice Booking →

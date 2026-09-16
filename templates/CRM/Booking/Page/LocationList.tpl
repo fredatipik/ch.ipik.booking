@@ -1,4 +1,4 @@
-{* ch.ipik.booking — Page/LocationList.tpl *}
+{* ch.ipik.practicebooking — Page/LocationList.tpl *}
 <div class="crm-container">
   <p class="description">
     {ts}Chaque local dispose de son propre agenda. Lorsqu'un rendez-vous s'y tient, le créneau devient indisponible pour tous les intervenant·es, et l'agenda du local permet aussi de bloquer des plages sans passer par une réservation.{/ts}

@@ -15,7 +15,7 @@ class Therapist extends Generic\AbstractEntity {
     return [
       'title'        => ts('Intervenant·e'),
       'title_plural' => ts('Intervenant·es'),
-      'description'  => ts('Intervenant·es ch.ipik.booking'),
+      'description'  => ts('Intervenant·es ch.ipik.practicebooking'),
       'primary_key'  => ['id'],
       'type'         => ['Base'],
       'table_name'   => 'civicrm_booking_therapist',

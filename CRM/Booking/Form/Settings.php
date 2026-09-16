@@ -8,7 +8,7 @@ use CRM\Booking\Service\TemplateService;
 use CRM\Booking\Utils;
 
 /**
- * Formulaire — paramètres globaux de ch.ipik.booking.
+ * Formulaire — paramètres globaux de ch.ipik.practicebooking.
  * Regroupe : réservation, agenda CalDAV, facturation, modèles d'email,
  * et l'état de synchronisation des agendas.
  */

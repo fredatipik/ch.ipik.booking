@@ -1,4 +1,4 @@
-{* ch.ipik.booking — Form/Appointment.tpl *}
+{* ch.ipik.practicebooking — Form/Appointment.tpl *}
 <div class="crm-container crm-form-block ipik-new-appt" data-slots-url="{$slotsURL}">
 
   <div class="crm-section">

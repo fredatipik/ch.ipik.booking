@@ -1,4 +1,4 @@
-{* ch.ipik.booking — Form/Therapist.tpl *}
+{* ch.ipik.practicebooking — Form/Therapist.tpl *}
 <div class="crm-container crm-form-block">
   <h3>{if $recordId}{ts}Modifier l'intervenant·e{/ts}{else}{ts}Nouvel·le intervenant·e{/ts}{/if}</h3>
 

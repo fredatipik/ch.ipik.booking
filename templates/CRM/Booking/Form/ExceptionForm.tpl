@@ -1,4 +1,4 @@
-{* ch.ipik.booking — Form/ExceptionForm.tpl *}
+{* ch.ipik.practicebooking — Form/ExceptionForm.tpl *}
 <div class="crm-container crm-form-block">
   <h3>{ts}Congé ou créneau exceptionnel{/ts}</h3>
   <p class="description">

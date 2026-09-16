@@ -155,7 +155,7 @@ class InformaniakCalDavProvider implements CalendarProviderInterface {
     $lines = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//IPIK//ch.ipik.booking//FR',
+      'PRODID:-//IPIK//ch.ipik.practicebooking//FR',
       'CALSCALE:GREGORIAN',
       'BEGIN:VTIMEZONE',
       'TZID:Europe/Zurich',
@@ -226,7 +226,7 @@ class InformaniakCalDavProvider implements CalendarProviderInterface {
       CURLOPT_TIMEOUT        => self::TIMEOUT,
       CURLOPT_CONNECTTIMEOUT => 5,
       CURLOPT_HTTPHEADER     => array_merge(
-        ['User-Agent: ch.ipik.booking/0.4.17'],
+        ['User-Agent: ch.ipik.practicebooking/0.5.0'],
         $headers
       ),
     ];

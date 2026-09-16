@@ -1,4 +1,4 @@
-{* ch.ipik.booking — Page/AppointmentList.tpl *}
+{* ch.ipik.practicebooking — Page/AppointmentList.tpl *}
 <div class="crm-container ipik-appt-list">
 
   <div style="margin-bottom:1rem">

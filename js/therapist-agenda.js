@@ -1,5 +1,5 @@
 /**
- * ch.ipik.booking — therapist-agenda.js
+ * ch.ipik.practicebooking — therapist-agenda.js
  * Interactions légères sur la page agenda thérapeute (backoffice CiviCRM).
  */
 (function ($) {

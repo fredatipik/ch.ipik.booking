@@ -2,7 +2,7 @@
 namespace CRM\Booking;
 
 /**
- * Utilitaires généraux pour ch.ipik.booking.
+ * Utilitaires généraux pour ch.ipik.practicebooking.
  */
 class Utils {
 
@@ -46,7 +46,7 @@ class Utils {
    * URL de base du plugin (pour assets JS/CSS).
    */
   public static function resourceUrl(): string {
-    return \CRM_Core_Resources::singleton()->getUrl('ch.ipik.booking');
+    return \CRM_Core_Resources::singleton()->getUrl('ch.ipik.practicebooking');
   }
 
   /**
@@ -107,6 +107,6 @@ class Utils {
    * Logger une erreur dans le log CiviCRM.
    */
   public static function logError(string $message, array $context = []): void {
-    \Civi::log()->error('[ch.ipik.booking] ' . $message, $context);
+    \Civi::log()->error('[ch.ipik.practicebooking] ' . $message, $context);
   }
 }

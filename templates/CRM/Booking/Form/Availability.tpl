@@ -1,4 +1,4 @@
-{* ch.ipik.booking — Form/Availability.tpl *}
+{* ch.ipik.practicebooking — Form/Availability.tpl *}
 <div class="crm-container crm-form-block">
   <p class="description">
     {ts}Horaires de consultation, semaine type. Deux plages possibles par jour (matin et après-midi). Laissez vide pour retirer une plage.{/ts}

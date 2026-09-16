@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<extension key="ch.ipik.booking" type="module">
+<extension key="ch.ipik.practicebooking" type="module">
   <file>booking</file>
   <name>Practice Booking</name>
   <description>Appointment booking for practices with several practitioners sharing one or more rooms. Public WordPress form, room and practitioner availability, CalDAV sync.</description>
   <urls>
-    <url desc="Main Extension Page">https://github.com/fredatipik/ch.ipik.booking</url>
-    <url desc="Documentation">https://github.com/fredatipik/ch.ipik.booking/blob/main/INSTALL.md</url>
-    <url desc="Support">https://github.com/fredatipik/ch.ipik.booking/issues</url>
+    <url desc="Main Extension Page">https://github.com/fredatipik/ch.ipik.practicebooking</url>
+    <url desc="Documentation">https://github.com/fredatipik/ch.ipik.practicebooking/blob/main/INSTALL.md</url>
+    <url desc="Support">https://github.com/fredatipik/ch.ipik.practicebooking/issues</url>
     <url desc="Licensing">https://www.gnu.org/licenses/agpl-3.0.html</url>
   </urls>
   <license>AGPL-3.0</license>
@@ -14,8 +14,8 @@
     <author>Frédéric Hiltbrand — IPIK</author>
     <email>fred@ipik.ch</email>
   </maintainer>
-  <releaseDate>2026-09-05</releaseDate>
-  <version>0.4.17</version>
+  <releaseDate>2026-09-06</releaseDate>
+  <version>0.5.0</version>
   <develStage>beta</develStage>
   <compatibility>
     <ver>5.60</ver>

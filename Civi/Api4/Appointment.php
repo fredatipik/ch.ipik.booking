@@ -51,7 +51,7 @@ class Appointment extends Generic\AbstractEntity {
     return [
       'title'        => ts('Rendez-vous'),
       'title_plural' => ts('Rendez-vous'),
-      'description'  => ts('Rendez-vous ch.ipik.booking'),
+      'description'  => ts('Rendez-vous ch.ipik.practicebooking'),
       'primary_key'  => ['id'],
       'type'         => ['Base'],
       'table_name'   => 'civicrm_booking_appointment',

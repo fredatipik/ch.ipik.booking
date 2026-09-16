@@ -15,7 +15,7 @@ class Availability extends Generic\AbstractEntity {
     return [
       'title'        => ts('Disponibilité'),
       'title_plural' => ts('Disponibilités'),
-      'description'  => ts('Disponibilités intervenant·es ch.ipik.booking'),
+      'description'  => ts('Disponibilités intervenant·es ch.ipik.practicebooking'),
       'primary_key'  => ['id'],
       'type'         => ['Base'],
       'table_name'   => 'civicrm_booking_availability',

@@ -1,6 +1,6 @@
 <?php
 /**
- * ch.ipik.booking v0.4.17 — Extension CiviCRM de prise de rendez-vous
+ * ch.ipik.practicebooking v0.5.0 — Extension CiviCRM de prise de rendez-vous
  * Fichier principal — hooks CiviCRM
  */
 
@@ -258,7 +258,7 @@ function booking_civicrm_managed(array &$entities): void {
         continue;
       }
       // Le champ "module" est obligatoire pour CRM_Core_ManagedEntities
-      $item['module'] = 'ch.ipik.booking';
+      $item['module'] = 'ch.ipik.practicebooking';
       $entities[] = $item;
     }
   }

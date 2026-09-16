@@ -13,7 +13,7 @@ return [
     'params' => [
       'version'       => 3,
       'name'          => 'Booking : rappels email',
-      'description'   => 'Envoie les rappels de rendez-vous aux patients (ch.ipik.booking).',
+      'description'   => 'Envoie les rappels de rendez-vous aux patients (ch.ipik.practicebooking).',
       'run_frequency' => 'Hourly',
       'api_entity'    => 'BookingReminder',
       'api_action'    => 'run',

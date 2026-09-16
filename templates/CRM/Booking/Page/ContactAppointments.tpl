@@ -1,4 +1,4 @@
-{* ch.ipik.booking — Page/ContactAppointments.tpl *}
+{* ch.ipik.practicebooking — Page/ContactAppointments.tpl *}
 <div class="crm-container ipik-contact-appts">
 
   <h3>{ts}Rendez-vous à venir{/ts}</h3>

@@ -1,4 +1,4 @@
-{* ch.ipik.booking — Form/AppointmentType.tpl *}
+{* ch.ipik.practicebooking — Form/AppointmentType.tpl *}
 <div class="crm-container crm-form-block">
   <h3>{if $recordId}{ts}Modifier le type de rendez-vous{/ts}{else}{ts}Nouveau type de rendez-vous{/ts}{/if}</h3>
 

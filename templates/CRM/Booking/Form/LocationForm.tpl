@@ -1,4 +1,4 @@
-{* ch.ipik.booking — Form/LocationForm.tpl *}
+{* ch.ipik.practicebooking — Form/LocationForm.tpl *}
 <div class="crm-container crm-form-block">
   <h3>{if $recordId}{ts}Modifier le local{/ts}{else}{ts}Nouveau local{/ts}{/if}</h3>
 

@@ -1,4 +1,4 @@
-{* ch.ipik.booking — Page/TherapistAgenda.tpl *}
+{* ch.ipik.practicebooking — Page/TherapistAgenda.tpl *}
 {assign var="t_id"  value=$therapist.id}
 {assign var="t_cid" value=$therapist.contact_id}
 

@@ -1,4 +1,4 @@
-{* ch.ipik.booking — TherapistList.tpl *}
+{* ch.ipik.practicebooking — TherapistList.tpl *}
 <div class="crm-container">
   <h3>{ts}Intervenant·es{/ts}</h3>
 

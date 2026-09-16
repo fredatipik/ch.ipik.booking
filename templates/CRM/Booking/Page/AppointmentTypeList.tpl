@@ -1,4 +1,4 @@
-{* ch.ipik.booking — AppointmentTypeList.tpl *}
+{* ch.ipik.practicebooking — AppointmentTypeList.tpl *}
 <div class="crm-container">
   <h3>{ts}Types de rendez-vous{/ts}</h3>
 

@@ -17,9 +17,9 @@ practitioners share one or more consulting rooms.
 
 ```bash
 cd [civicrm]/ext/
-tar xzf ch.ipik.booking-x.y.z.tar.gz
+tar xzf ch.ipik.practicebooking-x.y.z.tar.gz
 cd [site root]
-cv ext:enable ch.ipik.booking
+cv ext:enable ch.ipik.practicebooking
 cv flush
 ```
 

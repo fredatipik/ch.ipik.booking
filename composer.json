@@ -1,5 +1,5 @@
 {
-  "name": "ipik/ch.ipik.booking",
+  "name": "ipik/ch.ipik.practicebooking",
   "description": "Extension CiviCRM de prise de rendez-vous pour cabinet thérapeutique",
   "type": "civicrm-extension",
   "license": "AGPL-3.0",

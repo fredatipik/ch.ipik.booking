@@ -1,4 +1,4 @@
-{* ch.ipik.booking — Form/Settings.tpl *}
+{* ch.ipik.practicebooking — Form/Settings.tpl *}
 <div class="crm-container crm-form-block ipik-settings">
 
   {* ---- Réservation ---- *}

@@ -60,6 +60,6 @@ class ReminderJob {
       }
     }
 
-    \Civi::log()->info("[ch.ipik.booking] ReminderJob : {$sent} rappel(s) envoyé(s).");
+    \Civi::log()->info("[ch.ipik.practicebooking] ReminderJob : {$sent} rappel(s) envoyé(s).");
   }
 }

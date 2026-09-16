@@ -1,4 +1,4 @@
-{* ch.ipik.booking — Page/Dashlet.tpl *}
+{* ch.ipik.practicebooking — Page/Dashlet.tpl *}
 <div class="ipik-dashlet">
 
   {if $denied}

@@ -64,7 +64,7 @@ class AppointmentList extends \CRM_Core_Page {
     ]);
     $this->assign('invoiceAvailable', Utils::isSwissQRInvoiceActive());
 
-    \CRM_Core_Resources::singleton()->addStyleFile('ch.ipik.booking', 'css/booking.css');
+    \CRM_Core_Resources::singleton()->addStyleFile('ch.ipik.practicebooking', 'css/booking.css');
 
     parent::run();
   }

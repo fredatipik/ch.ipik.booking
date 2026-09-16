@@ -1,4 +1,4 @@
-{* ch.ipik.booking — Page/Workdays.tpl *}
+{* ch.ipik.practicebooking — Page/Workdays.tpl *}
 <div class="crm-container ipik-workdays" id="ipik-workdays"
      data-therapist="{$therapist.id}"
      data-save-url="{$saveURL}">
