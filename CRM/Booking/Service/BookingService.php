@@ -77,7 +77,7 @@ class BookingService {
       // 3. Trouver les intervenant·es disponibles sur ce créneau
       $candidates = $this->getAvailableCandidates($typeId, $startDatetime);
       if (empty($candidates)) {
-        return ['success' => FALSE, 'error' => 'Ce créneau n\'est plus disponible.'];
+        return ['success' => FALSE, 'error' => 'This slot is no longer available.'];
       }
 
       // 4. Sélectionner le intervenant·e selon la stratégie configurée
@@ -128,7 +128,7 @@ class BookingService {
     }
     catch (\Throwable $e) {
       Utils::logError('Erreur BookingService::book()', ['error' => $e->getMessage()]);
-      return ['success' => FALSE, 'error' => 'Une erreur est survenue. Veuillez réessayer.'];
+      return ['success' => FALSE, 'error' => 'An error occurred. Please try again.'];
     }
   }
 
@@ -206,7 +206,7 @@ class BookingService {
         $locationUrl,
         $appointment['start_datetime'],
         $appointment['end_datetime'],
-        $appointment['therapist_name'] ?? 'Occupé'
+        $appointment['therapist_name'] ?? 'Busy'
       );
 
       if ($eventId) {
@@ -254,7 +254,7 @@ class BookingService {
     // Nouveau contact → créer dans CiviCRM
     $contactId = $this->createContact($contactData);
     if (!$contactId) {
-      return ['success' => FALSE, 'error' => 'Impossible de créer votre profil. Veuillez réessayer.'];
+      return ['success' => FALSE, 'error' => 'Unable to create your profile. Please try again.'];
     }
 
     // Créer compte WP si requis

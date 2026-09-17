@@ -155,7 +155,7 @@
       <strong>{$orphanCount}</strong>
       {ts}événement(s) de rendez-vous annulés subsistent dans les agendas et bloquent des créneaux.{/ts}
       <a href="{$cleanupURL}" class="button" style="margin-left:.6rem"
-         onclick="return confirm('{ts}Retirer ces événements des agendas ?{/ts}')">{ts}Nettoyer{/ts}</a>
+         onclick="return confirm('{ts}Remove these events from calendars?{/ts}')">{ts}Nettoyer{/ts}</a>
     </div>
   {/if}
 

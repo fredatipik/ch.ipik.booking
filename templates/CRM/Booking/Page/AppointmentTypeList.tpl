@@ -10,7 +10,7 @@
     <thead>
       <tr>
         <th>{ts}Couleur{/ts}</th>
-        <th>{ts}Libellé{/ts}</th>
+        <th>{ts}Label{/ts}</th>
         <th>{ts}Durée{/ts}</th>
         <th>{ts}Attribution{/ts}</th>
         <th>{ts}Accès{/ts}</th>

@@ -49,9 +49,9 @@ class Appointment extends Generic\AbstractEntity {
 
   public static function getInfo(): array {
     return [
-      'title'        => ts('Rendez-vous'),
-      'title_plural' => ts('Rendez-vous'),
-      'description'  => ts('Rendez-vous ch.ipik.practicebooking'),
+      'title'        => ts('Appointment'),
+      'title_plural' => ts('Appointment'),
+      'description'  => ts('ch.ipik.practicebooking appointments'),
       'primary_key'  => ['id'],
       'type'         => ['Base'],
       'table_name'   => 'civicrm_booking_appointment',

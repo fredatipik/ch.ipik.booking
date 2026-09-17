@@ -13,9 +13,9 @@ class Therapist extends Generic\AbstractEntity {
 
   public static function getInfo(): array {
     return [
-      'title'        => ts('Intervenant·e'),
-      'title_plural' => ts('Intervenant·es'),
-      'description'  => ts('Intervenant·es ch.ipik.practicebooking'),
+      'title'        => ts('Practitioner'),
+      'title_plural' => ts('Practitioners'),
+      'description'  => ts('ch.ipik.practicebooking practitioners'),
       'primary_key'  => ['id'],
       'type'         => ['Base'],
       'table_name'   => 'civicrm_booking_therapist',

@@ -16,33 +16,33 @@ class ExceptionForm extends \CRM_Core_Form {
 
   public function preProcess(): void {
     parent::preProcess();
-    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::statusBounce(ts('Accès refusé.'));
+    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::statusBounce(ts('Access denied.'));
     $this->_therapistId = (int) \CRM_Utils_Request::retrieve('therapist_id', 'Positive', $this, TRUE);
     $this->_contactId   = (int) \CRM_Utils_Request::retrieve('cid', 'Positive', $this, FALSE, 0);
-    $this->setTitle(ts('Congé ou créneau exceptionnel'));
+    $this->setTitle(ts('Leave or exceptional slot'));
     \CRM\Booking\Utils::setBreadCrumb([[
-      'title' => ts('Intervenant·es'),
+      'title' => ts('Practitioners'),
       'url'   => \CRM_Utils_System::url('civicrm/booking/therapists', 'reset=1'),
     ]]);
   }
 
   public function buildQuickForm(): void {
     // Dates : inputs natifs rendus dans le template (CiviCRM intercepte les id contenant "date")
-    $this->add('text', 'date_start', ts('Du'), [], TRUE);
-    $this->add('text', 'date_end',   ts('Au (inclus)'), [], TRUE);
+    $this->add('text', 'date_start', ts('From'), [], TRUE);
+    $this->add('text', 'date_end',   ts('To (inclusive)'), [], TRUE);
 
     $this->add('select', 'type', ts('Type'), [
-      'off'     => ts('Congé / absence — aucun créneau proposé'),
-      'special' => ts('Créneau exceptionnel — disponibilité supplémentaire'),
+      'off'     => ts('Leave / absence — no slot offered'),
+      'special' => ts('Exceptional slot — additional availability'),
     ], TRUE);
 
     // Heures : utilisées uniquement si type = special
-    $this->add('text', 'start_time', ts('Heure de début'), ['placeholder' => '09:00', 'maxlength' => 5]);
-    $this->add('text', 'end_time',   ts('Heure de fin'),   ['placeholder' => '12:00', 'maxlength' => 5]);
+    $this->add('text', 'start_time', ts('Start time'), ['placeholder' => '09:00', 'maxlength' => 5]);
+    $this->add('text', 'end_time',   ts('End time'),   ['placeholder' => '12:00', 'maxlength' => 5]);
 
     $this->add('text', 'note', ts('Note'), ['maxlength' => 255, 'size' => 40]);
 
-    $this->addButtons([['type' => 'submit', 'name' => ts('Ajouter'), 'isDefault' => TRUE]]);
+    $this->addButtons([['type' => 'submit', 'name' => ts('Add'), 'isDefault' => TRUE]]);
 
     $cancelURL = $this->_contactId
       ? \CRM_Utils_System::url('civicrm/booking/therapist-agenda', ['cid' => $this->_contactId])
@@ -58,7 +58,7 @@ class ExceptionForm extends \CRM_Core_Form {
     $end   = $values['date_end']   ?? '';
 
     if ($start && $end && $start > $end) {
-      $this->_errors['date_end'] = ts('La date de fin doit être postérieure ou égale à la date de début.');
+      $this->_errors['date_end'] = ts('The end date must be on or after the start date.');
     }
 
     // Créneau exceptionnel : les heures sont obligatoires
@@ -66,13 +66,13 @@ class ExceptionForm extends \CRM_Core_Form {
       $st = trim($values['start_time'] ?? '');
       $et = trim($values['end_time']   ?? '');
       if (!preg_match('/^\d{2}:\d{2}$/', $st)) {
-        $this->_errors['start_time'] = ts('Heure de début requise au format HH:MM.');
+        $this->_errors['start_time'] = ts('Start time required in HH:MM format.');
       }
       if (!preg_match('/^\d{2}:\d{2}$/', $et)) {
-        $this->_errors['end_time'] = ts('Heure de fin requise au format HH:MM.');
+        $this->_errors['end_time'] = ts('End time required in HH:MM format.');
       }
       if (!isset($this->_errors['start_time']) && !isset($this->_errors['end_time']) && $st >= $et) {
-        $this->_errors['end_time'] = ts('L\'heure de fin doit être postérieure à l\'heure de début.');
+        $this->_errors['end_time'] = ts('End time must be after start time.');
       }
     }
 
@@ -94,8 +94,8 @@ class ExceptionForm extends \CRM_Core_Form {
     ]);
 
     \CRM_Core_Session::setStatus(
-      $isSpecial ? ts('Créneau exceptionnel ajouté.') : ts('Congé ajouté.'),
-      ts('Succès'),
+      $isSpecial ? ts('Exceptional slot added.') : ts('Leave added.'),
+      ts('Success'),
       'success'
     );
 

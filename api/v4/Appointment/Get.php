@@ -49,7 +49,7 @@ class Get extends AbstractAction {
   protected int $offset = 0;
 
   public function _run(Result $result): void {
-    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::fatal(ts('Accès refusé.'));
+    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::fatal(ts('Access denied.'));
 
     $filters = array_filter([
       'therapist_id' => $this->therapist_id,

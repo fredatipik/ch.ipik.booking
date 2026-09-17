@@ -278,23 +278,23 @@ class NotificationService {
     if ($workflowName === self::TPL_CANCEL) {
       $subject = "Annulation du rendez-vous du {$date}";
       $html = "<p>Le rendez-vous <strong>{$type}</strong> du <strong>{$date}</strong> "
-            . "à <strong>{$time}</strong> a été annulé.</p>";
+            . "at <strong>{$time}</strong> has been cancelled.</p>";
     }
     elseif ($workflowName === self::TPL_THERAPIST) {
-      $subject = "Nouveau rendez-vous — {$date} à {$time}";
-      $html = "<p>Un nouveau rendez-vous a été enregistré :</p>"
-            . "<ul><li>{$type}</li><li>{$date} à {$time}</li>"
+      $subject = "New appointment — {$date} at {$time}";
+      $html = "<p>A new appointment has been registered:</p>"
+            . "<ul><li>{$type}</li><li>{$date} at {$time}</li>"
             . "<li>Patient : " . ($tokens['booking.contact_name'] ?? '') . "</li></ul>";
     }
     elseif ($workflowName === self::TPL_REMINDER) {
       $subject = "Rappel : votre rendez-vous du {$date}";
       $html = "<p>Rappel : vous avez rendez-vous <strong>{$date}</strong> "
-            . "à <strong>{$time}</strong> pour {$type}.</p>";
+            . "at <strong>{$time}</strong> for {$type}.</p>";
     }
     else {
       $subject = "Confirmation de votre rendez-vous du {$date}";
-      $html = "<p>Votre rendez-vous <strong>{$type}</strong> est confirmé "
-            . "pour le <strong>{$date}</strong> à <strong>{$time}</strong>.</p>";
+      $html = "<p>Your appointment <strong>{$type}</strong> is confirmed "
+            . "on <strong>{$date}</strong> at <strong>{$time}</strong>.</p>";
     }
 
     return [
@@ -309,8 +309,8 @@ class NotificationService {
    */
   private function formatDateFr(\DateTime $date): string {
     $jours = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
-    $mois  = ['', 'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
-              'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+    $mois  = ['', 'January', 'February', 'March', 'April', 'May', 'June',
+              'July', 'August', 'September', 'October', 'November', 'December'];
 
     return sprintf(
       '%s %d %s %d',

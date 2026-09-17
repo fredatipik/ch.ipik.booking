@@ -59,8 +59,8 @@ class AppointmentSlots extends \CRM_Core_Page {
   private function formatSlot(string $datetime): string {
     $dt    = new \DateTime($datetime);
     $jours = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
-    $mois  = ['', 'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
-              'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+    $mois  = ['', 'January', 'February', 'March', 'April', 'May', 'June',
+              'July', 'August', 'September', 'October', 'November', 'December'];
 
     return sprintf(
       '%s %d %s — %s',

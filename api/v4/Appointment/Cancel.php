@@ -17,7 +17,7 @@ class Cancel extends AbstractAction {
   protected string $reason = '';
 
   public function _run(Result $result): void {
-    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::fatal(ts('Accès refusé.'));
+    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::fatal(ts('Access denied.'));
     Appointment::cancel($this->id, $this->reason);
     $result[] = ['id' => $this->id, 'status' => 'cancelled'];
   }

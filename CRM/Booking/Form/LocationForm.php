@@ -18,36 +18,36 @@ class LocationForm extends \CRM_Core_Form {
   public function preProcess(): void {
     parent::preProcess();
     \CRM_Core_Permission::check('administer booking')
-      || \CRM_Core_Error::statusBounce(ts('Accès refusé.'));
+      || \CRM_Core_Error::statusBounce(ts('Access denied.'));
 
     $this->_id = (int) \CRM_Utils_Request::retrieve('id', 'Positive', $this, FALSE, 0);
     if ($this->_id) {
       $this->_location = Location::getById($this->_id);
       if (!$this->_location) {
-        \CRM_Core_Error::statusBounce(ts('Local introuvable.'));
+        \CRM_Core_Error::statusBounce(ts('Room not found.'));
       }
     }
 
-    $this->setTitle($this->_id ? ts('Modifier le local') : ts('Nouveau local'));
+    $this->setTitle($this->_id ? ts('Edit room') : ts('New room'));
     Utils::setBreadCrumb([[
-      'title' => ts('Locaux'),
+      'title' => ts('Rooms'),
       'url'   => \CRM_Utils_System::url('civicrm/booking/locations', 'reset=1'),
     ]]);
   }
 
   public function buildQuickForm(): void {
-    $this->add('text', 'name', ts('Nom'), ['maxlength' => 255, 'size' => 40], TRUE);
-    $this->add('text', 'address', ts('Adresse'), ['maxlength' => 512, 'size' => 50]);
-    $this->add('text', 'color', ts('Couleur'), ['maxlength' => 7], TRUE);
-    $this->add('text', 'calendar_url', ts('URL agenda CalDAV'), [
+    $this->add('text', 'name', ts('Name'), ['maxlength' => 255, 'size' => 40], TRUE);
+    $this->add('text', 'address', ts('Address'), ['maxlength' => 512, 'size' => 50]);
+    $this->add('text', 'color', ts('Colour'), ['maxlength' => 7], TRUE);
+    $this->add('text', 'calendar_url', ts('CalDAV calendar URL'), [
       'maxlength'   => 512,
       'size'        => 60,
       'placeholder' => 'https://sync.infomaniak.com/calendars/FK03484/…',
     ]);
-    $this->add('text', 'weight', ts('Ordre d\'affichage'), ['size' => 4]);
-    $this->add('checkbox', 'is_active', ts('Actif'));
+    $this->add('text', 'weight', ts('Display order'), ['size' => 4]);
+    $this->add('checkbox', 'is_active', ts('Active'));
 
-    $this->addButtons([['type' => 'submit', 'name' => ts('Enregistrer'), 'isDefault' => TRUE]]);
+    $this->addButtons([['type' => 'submit', 'name' => ts('Save'), 'isDefault' => TRUE]]);
     $this->assign('cancelURL', \CRM_Utils_System::url('civicrm/booking/locations', 'reset=1'));
     $this->assign('recordId', $this->_id);
   }
@@ -76,7 +76,7 @@ class LocationForm extends \CRM_Core_Form {
       'is_active'    => !empty($values['is_active']) ? 1 : 0,
     ]);
 
-    \CRM_Core_Session::setStatus(ts('Local enregistré.'), ts('Succès'), 'success');
+    \CRM_Core_Session::setStatus(ts('Room saved.'), ts('Success'), 'success');
     \CRM_Utils_System::redirect(\CRM_Utils_System::url('civicrm/booking/locations', 'reset=1'));
   }
 }

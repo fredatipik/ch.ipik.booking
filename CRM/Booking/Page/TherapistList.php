@@ -9,7 +9,7 @@ use CRM\Booking\BAO\Therapist;
 class TherapistList extends \CRM_Core_Page {
 
   public function run(): void {
-    \CRM_Core_Permission::check('administer booking') || \CRM_Core_Error::statusBounce(ts('Accès refusé.'));
+    \CRM_Core_Permission::check('administer booking') || \CRM_Core_Error::statusBounce(ts('Access denied.'));
     \CRM\Booking\Utils::setBreadCrumb();
     $this->assign('therapists', Therapist::getAll(FALSE));
     parent::run();

@@ -54,7 +54,7 @@
                 {if $appt.status eq 'confirmed'}
                   <a href="{crmURL p='civicrm/booking/appointment/complete' q="id=`$appt_id`&cid=`$t_cid`"}"
                      title="{ts}Marquer la séance comme effectuée{/ts}"
-                     onclick="return confirm('{ts}Confirmer que la séance a eu lieu ?{/ts}')">✓</a>
+                     onclick="return confirm('{ts}Confirm that the session took place?{/ts}')">✓</a>
                   <a href="{crmURL p='civicrm/booking/appointment/cancel' q="id=`$appt_id`&cid=`$t_cid`"}"
                      title="{ts}Annuler — un email sera envoyé{/ts}"
                      onclick="return confirm('{ts}Annuler ce rendez-vous ? Le patient et vous recevrez un email.{/ts}')">✕</a>
@@ -96,7 +96,7 @@
   <h3 class="ipik-section">{ts}Jours de travail{/ts}</h3>
   <p class="ipik-empty">
     {if $workdayCount}
-      {ts count=$workdayCount plural='%count journées déclarées à venir.'}%count journée déclarée à venir.{/ts}
+      {ts count=$workdayCount plural='%count declared working days ahead.'}%count declared working day ahead.{/ts}
     {else}
       {ts}Aucune journée déclarée — aucun créneau ne sera proposé.{/ts}
     {/if}

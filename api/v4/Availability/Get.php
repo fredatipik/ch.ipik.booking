@@ -17,7 +17,7 @@ class Get extends AbstractAction {
   protected bool $include_exceptions = TRUE;
 
   public function _run(Result $result): void {
-    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::fatal(ts('Accès refusé.'));
+    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::fatal(ts('Access denied.'));
 
     foreach (Availability::getForTherapist($this->therapist_id) as $slot) {
       $result[] = array_merge($slot, ['record_type' => 'availability']);

@@ -31,7 +31,7 @@
     <div class="content">
       {$form.slot.html}
       <span class="description" id="ipik-slot-hint">
-        {ts}Choisissez un type et un·e intervenant·e pour voir les créneaux disponibles.{/ts}
+        {ts}Choose a type and a practitioner to see available slots.{/ts}
       </span>
     </div>
     <div class="clear"></div>
@@ -111,7 +111,7 @@
 
     if (!typeId || !therId) {
       slotEl.appendChild(new Option('— Choisir un type et un·e intervenant·e —', ''));
-      hintEl.textContent = 'Choisissez un type et un·e intervenant·e pour voir les créneaux disponibles.';
+      hintEl.textContent = 'Choose a type and a practitioner to see available slots.';
       return;
     }
 
@@ -130,8 +130,8 @@
         var slots = data.slots || [];
 
         if (!slots.length) {
-          slotEl.appendChild(new Option('Aucun créneau disponible', ''));
-          hintEl.textContent = 'Aucune disponibilité sur les deux prochains mois. Utilisez la saisie libre si nécessaire.';
+          slotEl.appendChild(new Option('No slot available', ''));
+          hintEl.textContent = 'No availability in the next two months. Use free entry if needed.';
           return;
         }
 
@@ -139,12 +139,12 @@
         slots.forEach(function (s) {
           slotEl.appendChild(new Option(s.label, s.value));
         });
-        hintEl.textContent = slots.length + ' créneau(x) disponible(s).';
+        hintEl.textContent = slots.length + ' available slot(s).';
       })
       .catch(function () {
         slotEl.innerHTML = '';
         slotEl.appendChild(new Option('Erreur de chargement', ''));
-        hintEl.textContent = 'Les créneaux n\u2019ont pas pu être chargés.';
+        hintEl.textContent = 'Slots could not be loaded.';
       });
   }
 

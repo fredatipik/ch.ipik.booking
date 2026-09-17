@@ -184,19 +184,19 @@ function booking_civicrm_navigationMenu(&$menu): void {
     'weight'     => 37,
   ]);
   foreach ([
-    ['label' => ts('Tous les rendez-vous'), 'name' => 'booking_appointments', 'url' => 'civicrm/booking/appointments',      'permission' => 'access booking'],
-    ['label' => ts('Types de rendez-vous'), 'name' => 'booking_types',        'url' => 'civicrm/booking/appointment-types', 'permission' => 'administer booking'],
-    ['label' => ts('Intervenant·es'),       'name' => 'booking_therapists',   'url' => 'civicrm/booking/therapists',        'permission' => 'administer booking'],
-    ['label' => ts('Locaux'),               'name' => 'booking_locations',    'url' => 'civicrm/booking/locations',         'permission' => 'administer booking'],
-    ['label' => ts('Paramètres'),           'name' => 'booking_settings',     'url' => 'civicrm/booking/settings',          'permission' => 'administer booking'],
+    ['label' => ts('All appointments'), 'name' => 'booking_appointments', 'url' => 'civicrm/booking/appointments',      'permission' => 'access booking'],
+    ['label' => ts('Appointment types'), 'name' => 'booking_types',        'url' => 'civicrm/booking/appointment-types', 'permission' => 'administer booking'],
+    ['label' => ts('Practitioners'),       'name' => 'booking_therapists',   'url' => 'civicrm/booking/therapists',        'permission' => 'administer booking'],
+    ['label' => ts('Rooms'),               'name' => 'booking_locations',    'url' => 'civicrm/booking/locations',         'permission' => 'administer booking'],
+    ['label' => ts('Settings'),           'name' => 'booking_settings',     'url' => 'civicrm/booking/settings',          'permission' => 'administer booking'],
   ] as $item) {
     _booking_insert_nav($menu, 'booking_root', $item + ['is_active' => 1]);
   }
 }
 
 function booking_civicrm_permission(&$permissions): void {
-  $permissions['access booking']     = ['label' => ts('Booking : accéder aux rendez-vous')];
-  $permissions['administer booking'] = ['label' => ts('Booking : administrer')];
+  $permissions['access booking']     = ['label' => ts('Booking: access appointments')];
+  $permissions['administer booking'] = ['label' => ts('Booking: administer')];
 }
 
 function booking_civicrm_tabset($tabsetName, &$tabs, $context): void {
@@ -210,7 +210,7 @@ function booking_civicrm_tabset($tabsetName, &$tabs, $context): void {
   // Thérapeute : agenda complet (disponibilités, congés, rendez-vous)
   if (\CRM\Booking\BAO\Therapist::isTherapist($contactId)) {
     $tabs['booking_agenda'] = [
-      'title'  => ts('Agenda'),
+      'title'  => ts('Calendar'),
       'link'   => \CRM\Booking\Utils::agendaTabUrl($contactId),
       'valid'  => TRUE, 'active' => TRUE, 'current' => FALSE, 'weight' => 100,
     ];
@@ -226,7 +226,7 @@ function booking_civicrm_tabset($tabsetName, &$tabs, $context): void {
   if (!$count) return;
 
   $tabs['booking_appointments'] = [
-    'title'  => ts('Rendez-vous'),
+    'title'  => ts('Appointment'),
     'count'  => $count,
     'link'   => \CRM_Utils_System::url('civicrm/booking/contact-appointments', ['cid' => $contactId]),
     'valid'  => TRUE, 'active' => TRUE, 'current' => FALSE, 'weight' => 100,

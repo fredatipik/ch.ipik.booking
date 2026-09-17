@@ -13,7 +13,7 @@ class ContactAppointments extends \CRM_Core_Page {
   public function run(): void {
     $contactId = (int) \CRM_Utils_Request::retrieve('cid', 'Positive', $this);
     if (!$contactId) {
-      \CRM_Core_Error::statusBounce(ts('Contact non précisé.'));
+      \CRM_Core_Error::statusBounce(ts('Contact not specified.'));
     }
 
     $this->assign('upcoming', $this->fetch($contactId, TRUE));
@@ -64,8 +64,8 @@ class ContactAppointments extends \CRM_Core_Page {
    */
   private function formatDateFr(\DateTime $date): string {
     $jours = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
-    $mois  = ['', 'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
-              'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+    $mois  = ['', 'January', 'February', 'March', 'April', 'May', 'June',
+              'July', 'August', 'September', 'October', 'November', 'December'];
     return sprintf(
       '%s %d %s %d',
       $jours[(int) $date->format('w')],

@@ -12,7 +12,7 @@ use CRM\Booking\Utils;
 class AppointmentList extends \CRM_Core_Page {
 
   public function run(): void {
-    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::statusBounce(ts('Accès refusé.'));
+    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::statusBounce(ts('Access denied.'));
     Utils::setBreadCrumb();
 
     $filters = [
@@ -56,11 +56,11 @@ class AppointmentList extends \CRM_Core_Page {
     $this->assign('therapists', Therapist::getAll());
     $this->assign('types', AppointmentType::getAll());
     $this->assign('statusOptions', [
-      ''          => ts('Tous les statuts'),
-      'confirmed' => ts('Confirmé'),
-      'pending'   => ts('En attente'),
-      'completed' => ts('Terminé'),
-      'cancelled' => ts('Annulé'),
+      ''          => ts('All statuses'),
+      'confirmed' => ts('Confirmed'),
+      'pending'   => ts('Pending'),
+      'completed' => ts('Completed'),
+      'cancelled' => ts('Cancelled'),
     ]);
     $this->assign('invoiceAvailable', Utils::isSwissQRInvoiceActive());
 

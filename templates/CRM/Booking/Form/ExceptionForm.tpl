@@ -1,6 +1,6 @@
 {* ch.ipik.practicebooking — Form/ExceptionForm.tpl *}
 <div class="crm-container crm-form-block">
-  <h3>{ts}Congé ou créneau exceptionnel{/ts}</h3>
+  <h3>{ts}Leave or exceptional slot{/ts}</h3>
   <p class="description">
     {ts}Un <strong>congé</strong> retire tous les créneaux de la période. Un <strong>créneau exceptionnel</strong> ajoute une disponibilité ponctuelle, en plus des horaires habituels.{/ts}
   </p>

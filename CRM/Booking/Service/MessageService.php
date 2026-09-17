@@ -26,24 +26,24 @@ class MessageService {
   public static function definitions(): array {
     return [
       self::EMAIL_GATE => [
-        'label'   => ts('Vérification de l\'adresse e-mail'),
-        'help'    => ts('Affiché pour un type de rendez-vous réservé aux patients déjà suivis, avant de choisir un créneau.'),
-        'default' => ts('Ce type de rendez-vous est réservé aux patients déjà suivis. Merci de saisir votre adresse e-mail pour poursuivre.'),
+        'label'   => ts('Email address verification'),
+        'help'    => ts('Displayed for an appointment type reserved for existing patients, before selecting a slot.'),
+        'default' => ts('This appointment type is reserved for existing patients. Please enter your email address to continue.'),
       ],
       self::CONTACT_NOT_FOUND => [
-        'label'   => ts('Adresse non reconnue'),
+        'label'   => ts('Address not recognised'),
         'help'    => ts('Affiché lorsque l\'adresse saisie ne correspond à aucun patient enregistré.'),
         'default' => ts('Nous ne retrouvons pas cette adresse. Si vous êtes déjà suivi·e chez nous, contactez-nous directement pour convenir d\'un rendez-vous.'),
       ],
       self::NO_SLOTS => [
-        'label'   => ts('Aucun créneau disponible'),
-        'help'    => ts('Affiché lorsque la période consultée ne comporte aucune disponibilité.'),
-        'default' => ts('Aucun créneau disponible sur cette période.'),
+        'label'   => ts('No slot available'),
+        'help'    => ts('Displayed when the selected period has no availability.'),
+        'default' => ts('No slot available for this period.'),
       ],
       self::CONFIRMATION => [
-        'label'   => ts('Confirmation de réservation'),
-        'help'    => ts('Affiché après l\'enregistrement du rendez-vous.'),
-        'default' => ts('Un e-mail de confirmation vous a été envoyé. À bientôt !'),
+        'label'   => ts('Booking confirmation'),
+        'help'    => ts('Displayed after the appointment is saved.'),
+        'default' => ts('A confirmation email has been sent. See you soon!'),
       ],
     ];
   }

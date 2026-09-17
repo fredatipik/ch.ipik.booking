@@ -20,12 +20,12 @@ class TherapistAgenda extends \CRM_Core_Page {
     $therapist = Therapist::getByContactId($contactId);
 
     if (!$therapist) {
-      \CRM_Core_Error::statusBounce(ts('Ce contact n\'est pas un intervenant·e enregistré.'));
+      \CRM_Core_Error::statusBounce(ts('This contact is not a registered practitioner.'));
     }
     $therapistId = (int) $therapist['id'];
 
     Utils::setBreadCrumb([[
-      'title' => ts('Intervenant·es'),
+      'title' => ts('Practitioners'),
       'url'   => \CRM_Utils_System::url('civicrm/booking/therapists', 'reset=1'),
     ]]);
 
@@ -61,9 +61,9 @@ class TherapistAgenda extends \CRM_Core_Page {
     ]));
     $this->assign('invoiceAvailable', Utils::isSwissQRInvoiceActive());
     $this->assign('dayNames', [
-      0 => ts('Dimanche'), 1 => ts('Lundi'),   2 => ts('Mardi'),
-      3 => ts('Mercredi'), 4 => ts('Jeudi'),   5 => ts('Vendredi'),
-      6 => ts('Samedi'),
+      0 => ts('Sunday'), 1 => ts('Monday'),   2 => ts('Tuesday'),
+      3 => ts('Wednesday'), 4 => ts('Thursday'),   5 => ts('Friday'),
+      6 => ts('Saturday'),
     ]);
 
     \CRM_Core_Resources::singleton()->addStyleFile('ch.ipik.practicebooking', 'css/booking.css');
@@ -172,8 +172,8 @@ class TherapistAgenda extends \CRM_Core_Page {
    */
   private function formatDayFr(\DateTime $date): string {
     $jours = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
-    $mois  = ['', 'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
-              'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+    $mois  = ['', 'January', 'February', 'March', 'April', 'May', 'June',
+              'July', 'August', 'September', 'October', 'November', 'December'];
     return sprintf(
       '%s %d %s',
       $jours[(int) $date->format('w')],
@@ -186,8 +186,8 @@ class TherapistAgenda extends \CRM_Core_Page {
    * « Septembre 2026 »
    */
   private function formatMonthFr(\DateTime $date): string {
-    $mois = ['', 'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
-             'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+    $mois = ['', 'January', 'February', 'March', 'April', 'May', 'June',
+             'July', 'August', 'September', 'October', 'November', 'December'];
     return $mois[(int) $date->format('n')] . ' ' . $date->format('Y');
   }
 }

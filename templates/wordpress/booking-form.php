@@ -37,12 +37,12 @@ if (!defined('ABSPATH')) exit;
   <!-- Étape 2 : Sélection du créneau -->
   <div class="ipik-step ipik-step--hidden" id="ipik-step-slot" data-step="2" aria-hidden="true">
     <button type="button" class="ipik-back" data-target="type" aria-label="<?php esc_attr_e('Retour', 'ipik-booking'); ?>">← <?php esc_html_e('Retour', 'ipik-booking'); ?></button>
-    <h3 class="ipik-step__title"><?php esc_html_e('Choisissez une date et un créneau', 'ipik-booking'); ?></h3>
+    <h3 class="ipik-step__title"><?php esc_html_e('Choose a date and a slot', 'ipik-booking'); ?></h3>
 
     <!-- Mini-calendrier (navigation mois) -->
     <div class="ipik-calendar" id="ipik-calendar" role="region" aria-label="<?php esc_attr_e('Calendrier', 'ipik-booking'); ?>">
       <div class="ipik-calendar__nav">
-        <button type="button" id="ipik-cal-prev" aria-label="<?php esc_attr_e('Mois précédent', 'ipik-booking'); ?>">‹</button>
+        <button type="button" id="ipik-cal-prev" aria-label="<?php esc_attr_e('Previous month', 'ipik-booking'); ?>">‹</button>
         <span id="ipik-cal-month"></span>
         <button type="button" id="ipik-cal-next" aria-label="<?php esc_attr_e('Mois suivant', 'ipik-booking'); ?>">›</button>
       </div>
@@ -52,15 +52,15 @@ if (!defined('ABSPATH')) exit;
     </div>
 
     <!-- Créneaux du jour sélectionné -->
-    <div class="ipik-slots" id="ipik-slots" aria-live="polite" aria-label="<?php esc_attr_e('Créneaux disponibles', 'ipik-booking'); ?>">
-      <p class="ipik-slots__hint"><?php esc_html_e('Sélectionnez une date pour voir les créneaux disponibles.', 'ipik-booking'); ?></p>
+    <div class="ipik-slots" id="ipik-slots" aria-live="polite" aria-label="<?php esc_attr_e('Available slots', 'ipik-booking'); ?>">
+      <p class="ipik-slots__hint"><?php esc_html_e('Select a date to see available slots.', 'ipik-booking'); ?></p>
     </div>
   </div>
 
   <!-- Étape 3 : Informations du patient -->
   <div class="ipik-step ipik-step--hidden" id="ipik-step-contact" data-step="3" aria-hidden="true">
     <button type="button" class="ipik-back" data-target="slot" aria-label="<?php esc_attr_e('Retour', 'ipik-booking'); ?>">← <?php esc_html_e('Retour', 'ipik-booking'); ?></button>
-    <h3 class="ipik-step__title"><?php esc_html_e('Vos coordonnées', 'ipik-booking'); ?></h3>
+    <h3 class="ipik-step__title"><?php esc_html_e('Your details', 'ipik-booking'); ?></h3>
 
     <!-- Récapitulatif du créneau choisi -->
     <div class="ipik-summary" id="ipik-summary" aria-live="polite">
@@ -73,7 +73,7 @@ if (!defined('ABSPATH')) exit;
       <div class="ipik-field">
         <label for="ipik-email-check"><?php esc_html_e('Votre email', 'ipik-booking'); ?> <span aria-hidden="true">*</span></label>
         <input type="email" id="ipik-email-check" name="email_check" autocomplete="email" required />
-        <button type="button" id="ipik-check-email-btn"><?php esc_html_e('Vérifier', 'ipik-booking'); ?></button>
+        <button type="button" id="ipik-check-email-btn"><?php esc_html_e('Verify', 'ipik-booking'); ?></button>
       </div>
       <div id="ipik-email-gate-result" aria-live="polite"></div>
     </div>
@@ -86,7 +86,7 @@ if (!defined('ABSPATH')) exit;
 
       <div class="ipik-fields">
         <div class="ipik-field">
-          <label for="ipik-first-name"><?php esc_html_e('Prénom', 'ipik-booking'); ?> <span aria-hidden="true">*</span></label>
+          <label for="ipik-first-name"><?php esc_html_e('First name', 'ipik-booking'); ?> <span aria-hidden="true">*</span></label>
           <input type="text" id="ipik-first-name" name="first_name" autocomplete="given-name" required />
         </div>
         <div class="ipik-field">
@@ -98,7 +98,7 @@ if (!defined('ABSPATH')) exit;
           <input type="email" id="ipik-email" name="email" autocomplete="email" required />
         </div>
         <div class="ipik-field">
-          <label for="ipik-phone"><?php esc_html_e('Téléphone', 'ipik-booking'); ?></label>
+          <label for="ipik-phone"><?php esc_html_e('Phone', 'ipik-booking'); ?></label>
           <input type="tel" id="ipik-phone" name="phone" autocomplete="tel" />
         </div>
         <div class="ipik-field ipik-field--full">
@@ -120,7 +120,7 @@ if (!defined('ABSPATH')) exit;
   <div class="ipik-step ipik-step--hidden" id="ipik-step-confirm" data-step="4" aria-hidden="true" role="status" aria-live="polite">
     <div class="ipik-confirm">
       <div class="ipik-confirm__icon" aria-hidden="true">✓</div>
-      <h3 class="ipik-confirm__title"><?php esc_html_e('Rendez-vous confirmé !', 'ipik-booking'); ?></h3>
+      <h3 class="ipik-confirm__title"><?php esc_html_e('Appointment confirmed!', 'ipik-booking'); ?></h3>
       <p class="ipik-confirm__msg"><?php echo esc_html($messages['msg_confirmation'] ?? ''); ?></p>
       <button type="button" id="ipik-new-booking"><?php esc_html_e('Prendre un autre rendez-vous', 'ipik-booking'); ?></button>
     </div>

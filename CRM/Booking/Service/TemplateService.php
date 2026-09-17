@@ -30,7 +30,7 @@ class TemplateService {
       ],
       self::CONFIRMATION_THERAPIST => [
         'title'   => 'Booking — Nouveau rendez-vous (intervenant·e)',
-        'subject' => 'Nouveau rendez-vous — {booking.date} à {booking.time}',
+        'subject' => 'New appointment — {booking.date} at {booking.time}',
         'html'    => self::htmlConfirmationTherapist(),
       ],
       self::REMINDER_CLIENT => [
@@ -182,19 +182,19 @@ class TemplateService {
     return <<<'HTML'
 <p>Bonjour {contact.first_name},</p>
 
-<p>Votre rendez-vous est confirmé :</p>
+<p>Your appointment is confirmed:</p>
 
 <table cellpadding="6" style="border-collapse:collapse">
   <tr><td><strong>Type</strong></td><td>{booking.type}</td></tr>
   <tr><td><strong>Date</strong></td><td>{booking.date}</td></tr>
   <tr><td><strong>Heure</strong></td><td>{booking.time}</td></tr>
-  <tr><td><strong>Durée</strong></td><td>{booking.duration} minutes</td></tr>
+  <tr><td><strong>Duration</strong></td><td>{booking.duration} minutes</td></tr>
   <tr><td><strong>Lieu</strong></td><td>{booking.location}</td></tr>
 </table>
 
-<p>Si vous devez annuler ou déplacer ce rendez-vous, merci de nous prévenir dès que possible.</p>
+<p>If you need to cancel or reschedule, please let us know as soon as possible.</p>
 
-<p>À bientôt,<br>L'équipe du cabinet</p>
+<p>See you soon,<br>The team</p>
 HTML;
   }
 
@@ -202,13 +202,13 @@ HTML;
     return <<<'HTML'
 <p>Bonjour,</p>
 
-<p>Un nouveau rendez-vous a été enregistré dans votre agenda :</p>
+<p>A new appointment has been added to your calendar:</p>
 
 <table cellpadding="6" style="border-collapse:collapse">
   <tr><td><strong>Type</strong></td><td>{booking.type}</td></tr>
   <tr><td><strong>Date</strong></td><td>{booking.date}</td></tr>
   <tr><td><strong>Heure</strong></td><td>{booking.time}</td></tr>
-  <tr><td><strong>Durée</strong></td><td>{booking.duration} minutes</td></tr>
+  <tr><td><strong>Duration</strong></td><td>{booking.duration} minutes</td></tr>
   <tr><td><strong>Patient</strong></td><td>{booking.contact_name}</td></tr>
   <tr><td><strong>Notes</strong></td><td>{booking.notes}</td></tr>
 </table>
@@ -219,7 +219,7 @@ HTML;
     return <<<'HTML'
 <p>Bonjour,</p>
 
-<p>Le rendez-vous suivant a été <strong>annulé</strong> :</p>
+<p>The following appointment has been <strong>cancelled</strong>:</p>
 
 <table cellpadding="6" style="border-collapse:collapse">
   <tr><td><strong>Type</strong></td><td>{booking.type}</td></tr>
@@ -231,7 +231,7 @@ HTML;
 
 <p>{booking.cancel_reason}</p>
 
-<p>Pour reprendre rendez-vous, n'hésitez pas à nous contacter.</p>
+<p>To book a new appointment, please do not hesitate to contact us.</p>
 HTML;
   }
 
@@ -239,9 +239,9 @@ HTML;
     return <<<'HTML'
 <p>Bonjour {contact.first_name},</p>
 
-<p>Petit rappel : vous avez rendez-vous <strong>{booking.date}</strong> à <strong>{booking.time}</strong> pour {booking.type}.</p>
+<p>Reminder: you have an appointment on <strong>{booking.date}</strong> at <strong>{booking.time}</strong> for {booking.type}.</p>
 
-<p>À bientôt,<br>L'équipe du cabinet</p>
+<p>See you soon,<br>The team</p>
 HTML;
   }
 }

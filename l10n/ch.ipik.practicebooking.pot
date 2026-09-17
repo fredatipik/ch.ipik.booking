@@ -1,0 +1,742 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR IPIK
+# This file is distributed under the same license as the ch.ipik.practicebooking package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ch.ipik.practicebooking\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-17 16:07+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: booking.php:176 CRM/Booking/Utils.php:97
+msgid "Booking"
+msgstr ""
+
+#: booking.php:187
+msgid "All appointments"
+msgstr ""
+
+#: booking.php:188 Civi/Api4/AppointmentType.php:17
+#: CRM/Booking/Form/AppointmentType.php:27
+msgid "Appointment types"
+msgstr ""
+
+#: booking.php:189 Civi/Api4/Therapist.php:17
+#: CRM/Booking/Page/TherapistAgenda.php:28 CRM/Booking/Page/Workdays.php:36
+#: CRM/Booking/Form/ExceptionForm.php:24 CRM/Booking/Form/Availability.php:46
+#: CRM/Booking/Form/Therapist.php:26
+msgid "Practitioners"
+msgstr ""
+
+#: booking.php:190 CRM/Booking/Form/LocationForm.php:33
+msgid "Rooms"
+msgstr ""
+
+#: booking.php:191
+msgid "Settings"
+msgstr ""
+
+#: booking.php:198
+msgid "Booking: access appointments"
+msgstr ""
+
+#: booking.php:199
+msgid "Booking: administer"
+msgstr ""
+
+#: booking.php:213
+msgid "Calendar"
+msgstr ""
+
+#: booking.php:229 Civi/Api4/Appointment.php:52 Civi/Api4/Appointment.php:53
+msgid "Appointment"
+msgstr ""
+
+#: Civi/Api4/Appointment.php:54
+msgid "ch.ipik.practicebooking appointments"
+msgstr ""
+
+#: Civi/Api4/Availability.php:16
+msgid "Availability"
+msgstr ""
+
+#: Civi/Api4/Availability.php:17
+msgid "Availabilities"
+msgstr ""
+
+#: Civi/Api4/Availability.php:18
+msgid "ch.ipik.practicebooking practitioner availabilities"
+msgstr ""
+
+#: Civi/Api4/AppointmentType.php:16 CRM/Booking/Form/Appointment.php:50
+msgid "Appointment type"
+msgstr ""
+
+#: Civi/Api4/AppointmentType.php:18
+msgid "ch.ipik.practicebooking appointment types"
+msgstr ""
+
+#: Civi/Api4/Therapist.php:16 CRM/Booking/Form/Appointment.php:58
+msgid "Practitioner"
+msgstr ""
+
+#: Civi/Api4/Therapist.php:18
+msgid "ch.ipik.practicebooking practitioners"
+msgstr ""
+
+#: CRM/Booking/Page/WorkdaySave.php:17 CRM/Booking/Page/AppointmentList.php:15
+#: CRM/Booking/Page/LocationList.php:14 CRM/Booking/Page/TherapistList.php:12
+#: CRM/Booking/Page/Workdays.php:22 CRM/Booking/Page/AppointmentTypeList.php:12
+#: CRM/Booking/Page/AppointmentAction.php:17
+#: CRM/Booking/Form/LocationForm.php:21 CRM/Booking/Form/Settings.php:19
+#: CRM/Booking/Form/ExceptionForm.php:19 CRM/Booking/Form/Appointment.php:30
+#: CRM/Booking/Form/Availability.php:34 CRM/Booking/Form/AppointmentType.php:19
+#: CRM/Booking/Form/Therapist.php:18 api/v4/Appointment/Complete.php:17
+#: api/v4/Appointment/Get.php:52 api/v4/Appointment/Cancel.php:20
+#: api/v4/Appointment/Create.php:49 api/v4/Availability/Get.php:20
+#: api/v4/Therapist/Get.php:17
+msgid "Access denied."
+msgstr ""
+
+#: CRM/Booking/Page/WorkdaySave.php:24
+msgid "Incomplete settings."
+msgstr ""
+
+#: CRM/Booking/Page/WorkdaySave.php:30
+msgid "Day removed."
+msgstr ""
+
+#: CRM/Booking/Page/WorkdaySave.php:38 CRM/Booking/Form/Appointment.php:129
+msgid "Expected time format HH:MM."
+msgstr ""
+
+#: CRM/Booking/Page/WorkdaySave.php:41 CRM/Booking/Form/ExceptionForm.php:75
+msgid "End time must be after start time."
+msgstr ""
+
+#: CRM/Booking/Page/WorkdaySave.php:52
+msgid "Day saved."
+msgstr ""
+
+#: CRM/Booking/Page/WorkdaySave.php:65
+msgid "Unable to save."
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentList.php:59
+msgid "All statuses"
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentList.php:60
+msgid "Confirmed"
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentList.php:61
+msgid "Pending"
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentList.php:62
+msgid "Completed"
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentList.php:63
+msgid "Cancelled"
+msgstr ""
+
+#: CRM/Booking/Page/Dashlet.php:87
+msgid "Today"
+msgstr ""
+
+#: CRM/Booking/Page/TherapistAgenda.php:23
+msgid "This contact is not a registered practitioner."
+msgstr ""
+
+#: CRM/Booking/Page/TherapistAgenda.php:64
+msgid "Sunday"
+msgstr ""
+
+#: CRM/Booking/Page/TherapistAgenda.php:64
+msgid "Monday"
+msgstr ""
+
+#: CRM/Booking/Page/TherapistAgenda.php:64
+msgid "Tuesday"
+msgstr ""
+
+#: CRM/Booking/Page/TherapistAgenda.php:65
+msgid "Wednesday"
+msgstr ""
+
+#: CRM/Booking/Page/TherapistAgenda.php:65
+msgid "Thursday"
+msgstr ""
+
+#: CRM/Booking/Page/TherapistAgenda.php:65
+msgid "Friday"
+msgstr ""
+
+#: CRM/Booking/Page/TherapistAgenda.php:66
+msgid "Saturday"
+msgstr ""
+
+#: CRM/Booking/Page/ContactAppointments.php:16
+msgid "Contact not specified."
+msgstr ""
+
+#: CRM/Booking/Page/Workdays.php:27 CRM/Booking/Form/Availability.php:41
+#: CRM/Booking/Form/Therapist.php:22
+msgid "Practitioner not found."
+msgstr ""
+
+#: CRM/Booking/Page/Workdays.php:33
+msgid "Working days — %1"
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentTypeList.php:16
+msgid "Round-robin"
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentTypeList.php:17
+msgid "Least busy"
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentTypeList.php:18 CRM/Booking/Utils.php:87
+msgid "Random"
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentAction.php:39
+msgid "Unknown action."
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentAction.php:48
+#: CRM/Booking/Page/AppointmentAction.php:58
+msgid "Appointment not found."
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentAction.php:51
+msgid "Appointment cancelled."
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentAction.php:51
+#: CRM/Booking/Page/AppointmentAction.php:61
+#: CRM/Booking/Page/AppointmentAction.php:71
+#: CRM/Booking/Page/AppointmentAction.php:81
+msgid "OK"
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentAction.php:61
+msgid "Appointment marked as completed."
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentAction.php:71
+msgid "Availability deleted."
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentAction.php:81
+msgid "Exception deleted."
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentAction.php:93
+msgid "The billing extension is not installed."
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentAction.php:93
+#: CRM/Booking/Page/AppointmentAction.php:101
+#: CRM/Booking/Form/Appointment.php:147
+msgid "Error"
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentAction.php:98
+msgid "Invoice #%1 generated."
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentAction.php:98
+#: CRM/Booking/Form/LocationForm.php:79 CRM/Booking/Form/Settings.php:137
+#: CRM/Booking/Form/ExceptionForm.php:98 CRM/Booking/Form/Appointment.php:191
+#: CRM/Booking/Form/Availability.php:138
+#: CRM/Booking/Form/AppointmentType.php:105 CRM/Booking/Form/Therapist.php:124
+msgid "Success"
+msgstr ""
+
+#: CRM/Booking/Page/AppointmentAction.php:101
+msgid "Error generating invoice."
+msgstr ""
+
+#: CRM/Booking/Form/LocationForm.php:27
+msgid "Room not found."
+msgstr ""
+
+#: CRM/Booking/Form/LocationForm.php:31
+msgid "Edit room"
+msgstr ""
+
+#: CRM/Booking/Form/LocationForm.php:31
+msgid "New room"
+msgstr ""
+
+#: CRM/Booking/Form/LocationForm.php:39
+msgid "Name"
+msgstr ""
+
+#: CRM/Booking/Form/LocationForm.php:40
+msgid "Address"
+msgstr ""
+
+#: CRM/Booking/Form/LocationForm.php:41
+msgid "Colour"
+msgstr ""
+
+#: CRM/Booking/Form/LocationForm.php:42 CRM/Booking/Form/Therapist.php:62
+msgid "CalDAV calendar URL"
+msgstr ""
+
+#: CRM/Booking/Form/LocationForm.php:47 CRM/Booking/Form/AppointmentType.php:43
+msgid "Display order"
+msgstr ""
+
+#: CRM/Booking/Form/LocationForm.php:48 CRM/Booking/Form/AppointmentType.php:44
+#: CRM/Booking/Form/Therapist.php:43
+msgid "Active"
+msgstr ""
+
+#: CRM/Booking/Form/LocationForm.php:50 CRM/Booking/Form/Settings.php:80
+#: CRM/Booking/Form/Availability.php:63 CRM/Booking/Form/AppointmentType.php:54
+#: CRM/Booking/Form/Therapist.php:87
+msgid "Save"
+msgstr ""
+
+#: CRM/Booking/Form/LocationForm.php:79
+msgid "Room saved."
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:20
+msgid "Booking Settings"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:32
+msgid "Default availability mode"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:33 CRM/Booking/Form/Therapist.php:49
+#: CRM/Booking/Form/Therapist.php:52
+msgid "Weekly schedule"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:34 CRM/Booking/Form/Therapist.php:48
+#: CRM/Booking/Form/Therapist.php:53
+msgid "Declared working days"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:36
+msgid "Default schedule — start"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:37
+msgid "Default schedule — end"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:39
+msgid "Create a CiviCRM activity for each appointment"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:41
+msgid "Global assignment strategy"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:42 CRM/Booking/Form/AppointmentType.php:39
+msgid "Interval between slots (minutes)"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:43 CRM/Booking/Form/Settings.php:45
+#: CRM/Booking/Form/AppointmentType.php:36
+#: CRM/Booking/Form/AppointmentType.php:40 CRM/Booking/Form/Therapist.php:40
+msgid "Positive integer required."
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:44
+msgid "Email reminder (hours before appointment)"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:59
+msgid "Sender address"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:60
+msgid "-- Domain default address --"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:63
+msgid "CalDAV username"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:64
+msgid "Password"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:67
+msgid "Default financial type"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:68 CRM/Booking/Form/Settings.php:70
+#: CRM/Booking/Form/Therapist.php:59
+msgid "— None —"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:69
+msgid "Default contribution status"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:137
+msgid "Settings saved."
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:274
+msgid "CalDAV credentials missing."
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:274
+msgid "Failed"
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:300
+msgid "%1 event(s) removed from calendars."
+msgstr ""
+
+#: CRM/Booking/Form/Settings.php:301
+msgid "Cleanup complete"
+msgstr ""
+
+#: CRM/Booking/Form/ExceptionForm.php:22
+msgid "Leave or exceptional slot"
+msgstr ""
+
+#: CRM/Booking/Form/ExceptionForm.php:31
+msgid "From"
+msgstr ""
+
+#: CRM/Booking/Form/ExceptionForm.php:32
+msgid "To (inclusive)"
+msgstr ""
+
+#: CRM/Booking/Form/ExceptionForm.php:34
+msgid "Type"
+msgstr ""
+
+#: CRM/Booking/Form/ExceptionForm.php:35
+msgid "Leave / absence — no slot offered"
+msgstr ""
+
+#: CRM/Booking/Form/ExceptionForm.php:36
+msgid "Exceptional slot — additional availability"
+msgstr ""
+
+#: CRM/Booking/Form/ExceptionForm.php:40
+msgid "Start time"
+msgstr ""
+
+#: CRM/Booking/Form/ExceptionForm.php:41
+msgid "End time"
+msgstr ""
+
+#: CRM/Booking/Form/ExceptionForm.php:43
+msgid "Note"
+msgstr ""
+
+#: CRM/Booking/Form/ExceptionForm.php:45
+msgid "Add"
+msgstr ""
+
+#: CRM/Booking/Form/ExceptionForm.php:61
+msgid "The end date must be on or after the start date."
+msgstr ""
+
+#: CRM/Booking/Form/ExceptionForm.php:69
+msgid "Start time required in HH:MM format."
+msgstr ""
+
+#: CRM/Booking/Form/ExceptionForm.php:72
+msgid "End time required in HH:MM format."
+msgstr ""
+
+#: CRM/Booking/Form/ExceptionForm.php:97
+msgid "Exceptional slot added."
+msgstr ""
+
+#: CRM/Booking/Form/ExceptionForm.php:97
+msgid "Leave added."
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:36
+msgid "New appointment"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:42
+msgid "Patient"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:45
+msgid "Search or create a contact…"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:51 CRM/Booking/Form/Appointment.php:59
+msgid "— Choose —"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:62
+msgid "Schedule"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:63
+msgid "Choose from available slots"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:64
+msgid "Enter a date and time"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:68
+msgid "Slot"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:68
+msgid "— Choose a type and a practitioner —"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:71
+msgid "Date"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:72
+msgid "Time"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:76
+msgid "Room"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:77
+msgid "— Detect automatically —"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:77
+msgid "No room"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:79
+msgid "Notes"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:81
+msgid "Send confirmation emails"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:83
+msgid "Create appointment"
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:116
+msgid "Choose a slot, or switch to free entry."
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:126
+msgid "Expected date format YYYY-MM-DD."
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:147
+msgid "Appointment type not found."
+msgstr ""
+
+#: CRM/Booking/Form/Appointment.php:190
+msgid "Appointment on %1 created."
+msgstr ""
+
+#: CRM/Booking/Form/Availability.php:44
+msgid "Availabilities of %1"
+msgstr ""
+
+#: CRM/Booking/Form/Availability.php:99
+msgid "%1: please enter start and end time."
+msgstr ""
+
+#: CRM/Booking/Form/Availability.php:103
+msgid "%1: expected format HH:MM."
+msgstr ""
+
+#: CRM/Booking/Form/Availability.php:107
+msgid "%1: end time must be after start time."
+msgstr ""
+
+#: CRM/Booking/Form/Availability.php:136
+msgid "%1 time slot(s) saved."
+msgstr ""
+
+#: CRM/Booking/Form/Availability.php:137
+msgid "All availabilities have been removed."
+msgstr ""
+
+#: CRM/Booking/Form/AppointmentType.php:23
+msgid "Type not found."
+msgstr ""
+
+#: CRM/Booking/Form/AppointmentType.php:25
+msgid "Edit appointment type"
+msgstr ""
+
+#: CRM/Booking/Form/AppointmentType.php:25
+msgid "New appointment type"
+msgstr ""
+
+#: CRM/Booking/Form/AppointmentType.php:33
+msgid "Label"
+msgstr ""
+
+#: CRM/Booking/Form/AppointmentType.php:34
+msgid "Description"
+msgstr ""
+
+#: CRM/Booking/Form/AppointmentType.php:35
+msgid "Duration (minutes)"
+msgstr ""
+
+#: CRM/Booking/Form/AppointmentType.php:37
+msgid "Colour (hex)"
+msgstr ""
+
+#: CRM/Booking/Form/AppointmentType.php:38
+msgid "Assignment strategy"
+msgstr ""
+
+#: CRM/Booking/Form/AppointmentType.php:41
+msgid "Bookable by existing CiviCRM contact only"
+msgstr ""
+
+#: CRM/Booking/Form/AppointmentType.php:42
+msgid "WordPress account creation required"
+msgstr ""
+
+#: CRM/Booking/Form/AppointmentType.php:105
+msgid "Appointment type saved."
+msgstr ""
+
+#: CRM/Booking/Form/Therapist.php:24
+msgid "Edit practitioner"
+msgstr ""
+
+#: CRM/Booking/Form/Therapist.php:24
+msgid "New practitioner"
+msgstr ""
+
+#: CRM/Booking/Form/Therapist.php:32
+msgid "CiviCRM contact"
+msgstr ""
+
+#: CRM/Booking/Form/Therapist.php:34
+msgid "Search for a contact…"
+msgstr ""
+
+#: CRM/Booking/Form/Therapist.php:37
+msgid "WordPress User ID"
+msgstr ""
+
+#: CRM/Booking/Form/Therapist.php:38
+msgid "Calendar colour (hex)"
+msgstr ""
+
+#: CRM/Booking/Form/Therapist.php:39
+msgid "Max booking (days in advance)"
+msgstr ""
+
+#: CRM/Booking/Form/Therapist.php:41
+msgid "Buffer between appointments (minutes)"
+msgstr ""
+
+#: CRM/Booking/Form/Therapist.php:42
+msgid "Integer required."
+msgstr ""
+
+#: CRM/Booking/Form/Therapist.php:50
+msgid "Availability mode"
+msgstr ""
+
+#: CRM/Booking/Form/Therapist.php:51
+msgid "General setting (%1)"
+msgstr ""
+
+#: CRM/Booking/Form/Therapist.php:58
+msgid "Default room"
+msgstr ""
+
+#: CRM/Booking/Form/Therapist.php:124
+msgid "Practitioner saved."
+msgstr ""
+
+#: CRM/Booking/Utils.php:85
+msgid "Round-robin (fair rotation)"
+msgstr ""
+
+#: CRM/Booking/Utils.php:86
+msgid "Least busy (fewest appointments in the period)"
+msgstr ""
+
+#: CRM/Booking/Service/MessageService.php:29
+msgid "Email address verification"
+msgstr ""
+
+#: CRM/Booking/Service/MessageService.php:30
+msgid ""
+"Displayed for an appointment type reserved for existing patients, before "
+"selecting a slot."
+msgstr ""
+
+#: CRM/Booking/Service/MessageService.php:31
+msgid ""
+"This appointment type is reserved for existing patients. Please enter your "
+"email address to continue."
+msgstr ""
+
+#: CRM/Booking/Service/MessageService.php:34
+msgid "Address not recognised"
+msgstr ""
+
+#: CRM/Booking/Service/MessageService.php:35
+msgid ""
+"Affiché lorsque l'adresse saisie ne correspond à aucun patient enregistré."
+msgstr ""
+
+#: CRM/Booking/Service/MessageService.php:36
+msgid ""
+"Nous ne retrouvons pas cette adresse. Si vous êtes déjà suivi·e chez nous, "
+"contactez-nous directement pour convenir d'un rendez-vous."
+msgstr ""
+
+#: CRM/Booking/Service/MessageService.php:39
+msgid "No slot available"
+msgstr ""
+
+#: CRM/Booking/Service/MessageService.php:40
+msgid "Displayed when the selected period has no availability."
+msgstr ""
+
+#: CRM/Booking/Service/MessageService.php:41
+msgid "No slot available for this period."
+msgstr ""
+
+#: CRM/Booking/Service/MessageService.php:44
+msgid "Booking confirmation"
+msgstr ""
+
+#: CRM/Booking/Service/MessageService.php:45
+msgid "Displayed after the appointment is saved."
+msgstr ""
+
+#: CRM/Booking/Service/MessageService.php:46
+msgid "A confirmation email has been sent. See you soon!"
+msgstr ""

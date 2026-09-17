@@ -14,7 +14,7 @@ class Get extends AbstractAction {
   protected bool $active_only = TRUE;
 
   public function _run(Result $result): void {
-    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::fatal(ts('Accès refusé.'));
+    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::fatal(ts('Access denied.'));
     foreach (Therapist::getAll($this->active_only) as $therapist) {
       $result[] = $therapist;
     }

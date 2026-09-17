@@ -31,19 +31,19 @@ class Availability extends \CRM_Core_Form {
 
   public function preProcess(): void {
     parent::preProcess();
-    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::statusBounce(ts('Accès refusé.'));
+    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::statusBounce(ts('Access denied.'));
 
     $this->_therapistId = (int) \CRM_Utils_Request::retrieve('therapist_id', 'Positive', $this, TRUE);
     $this->_contactId   = (int) \CRM_Utils_Request::retrieve('cid', 'Positive', $this, FALSE, 0);
 
     $therapist = BAOTherapist::getById($this->_therapistId);
     if (!$therapist) {
-      \CRM_Core_Error::statusBounce(ts('Intervenant·e introuvable.'));
+      \CRM_Core_Error::statusBounce(ts('Practitioner not found.'));
     }
 
-    $this->setTitle(ts('Disponibilités de %1', [1 => $therapist['display_name']]));
+    $this->setTitle(ts('Availabilities of %1', [1 => $therapist['display_name']]));
     \CRM\Booking\Utils::setBreadCrumb([[
-      'title' => ts('Intervenant·es'),
+      'title' => ts('Practitioners'),
       'url'   => \CRM_Utils_System::url('civicrm/booking/therapists', 'reset=1'),
     ]]);
   }
@@ -60,7 +60,7 @@ class Availability extends \CRM_Core_Form {
     $this->assign('dayRows', $rows);
     $this->assign('slotsPerDay', self::SLOTS_PER_DAY);
 
-    $this->addButtons([['type' => 'submit', 'name' => ts('Enregistrer'), 'isDefault' => TRUE]]);
+    $this->addButtons([['type' => 'submit', 'name' => ts('Save'), 'isDefault' => TRUE]]);
 
     $cancelURL = $this->_contactId
       ? \CRM_Utils_System::url('civicrm/booking/therapist-agenda', ['cid' => $this->_contactId])
@@ -96,15 +96,15 @@ class Availability extends \CRM_Core_Form {
         if ($start === '' && $end === '') continue;
 
         if ($start === '' || $end === '') {
-          $this->_errors["end_{$dow}_{$i}"] = ts('%1 : indiquez l\'heure de début et de fin.', [1 => $label]);
+          $this->_errors["end_{$dow}_{$i}"] = ts('%1: please enter start and end time.', [1 => $label]);
           continue;
         }
         if (!preg_match('/^\d{1,2}:\d{2}$/', $start) || !preg_match('/^\d{1,2}:\d{2}$/', $end)) {
-          $this->_errors["start_{$dow}_{$i}"] = ts('%1 : format attendu HH:MM.', [1 => $label]);
+          $this->_errors["start_{$dow}_{$i}"] = ts('%1: expected format HH:MM.', [1 => $label]);
           continue;
         }
         if ($start >= $end) {
-          $this->_errors["end_{$dow}_{$i}"] = ts('%1 : l\'heure de fin doit suivre l\'heure de début.', [1 => $label]);
+          $this->_errors["end_{$dow}_{$i}"] = ts('%1: end time must be after start time.', [1 => $label]);
         }
       }
     }
@@ -133,9 +133,9 @@ class Availability extends \CRM_Core_Form {
 
     \CRM_Core_Session::setStatus(
       count($slots)
-        ? ts('%1 plage(s) horaire(s) enregistrée(s).', [1 => count($slots)])
-        : ts('Toutes les disponibilités ont été retirées.'),
-      ts('Succès'),
+        ? ts('%1 time slot(s) saved.', [1 => count($slots)])
+        : ts('All availabilities have been removed.'),
+      ts('Success'),
       'success'
     );
 

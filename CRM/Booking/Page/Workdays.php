@@ -19,21 +19,21 @@ class Workdays extends \CRM_Core_Page {
 
   public function run(): void {
     \CRM_Core_Permission::check('access booking')
-      || \CRM_Core_Error::statusBounce(ts('Accès refusé.'));
+      || \CRM_Core_Error::statusBounce(ts('Access denied.'));
 
     $therapistId = (int) \CRM_Utils_Request::retrieve('therapist_id', 'Positive', $this, TRUE);
     $therapist   = Therapist::getById($therapistId);
     if (!$therapist) {
-      \CRM_Core_Error::statusBounce(ts('Intervenant·e introuvable.'));
+      \CRM_Core_Error::statusBounce(ts('Practitioner not found.'));
     }
 
     $contactId = (int) $therapist['contact_id'];
 
     \CRM_Utils_System::setTitle(
-      ts('Jours de travail — %1', [1 => $therapist['display_name']])
+      ts('Working days — %1', [1 => $therapist['display_name']])
     );
     Utils::setBreadCrumb([[
-      'title' => ts('Intervenant·es'),
+      'title' => ts('Practitioners'),
       'url'   => \CRM_Utils_System::url('civicrm/booking/therapists', 'reset=1'),
     ]]);
 
@@ -76,8 +76,8 @@ class Workdays extends \CRM_Core_Page {
    * Construire la grille des six mois affichés.
    */
   private function buildMonths(\DateTime $start, array $workdays): array {
-    $monthNames = ['', 'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
-                   'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+    $monthNames = ['', 'January', 'February', 'March', 'April', 'May', 'June',
+                   'July', 'August', 'September', 'October', 'November', 'December'];
     $today  = date('Y-m-d');
     $months = [];
 
@@ -115,8 +115,8 @@ class Workdays extends \CRM_Core_Page {
   }
 
   private function formatPeriod(\DateTime $start, \DateTime $end): string {
-    $names = ['', 'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
-              'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+    $names = ['', 'January', 'February', 'March', 'April', 'May', 'June',
+              'July', 'August', 'September', 'October', 'November', 'December'];
     return sprintf(
       '%s %s – %s %s',
       $names[(int) $start->format('n')], $start->format('Y'),

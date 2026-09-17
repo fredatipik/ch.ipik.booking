@@ -46,7 +46,7 @@ class Create extends AbstractAction {
   protected ?string $notes = NULL;
 
   public function _run(Result $result): void {
-    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::fatal(ts('Accès refusé.'));
+    \CRM_Core_Permission::check('access booking') || \CRM_Core_Error::fatal(ts('Access denied.'));
 
     $service = new BookingService();
     $outcome = $service->book([

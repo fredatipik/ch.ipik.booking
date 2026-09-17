@@ -15,51 +15,51 @@ class Therapist extends \CRM_Core_Form {
 
   public function preProcess(): void {
     parent::preProcess();
-    \CRM_Core_Permission::check('administer booking') || \CRM_Core_Error::statusBounce(ts('Accès refusé.'));
+    \CRM_Core_Permission::check('administer booking') || \CRM_Core_Error::statusBounce(ts('Access denied.'));
     $this->_id = (int) \CRM_Utils_Request::retrieve('id', 'Positive', $this, FALSE, 0);
     if ($this->_id) {
       $this->_therapist = BAOTherapist::getById($this->_id);
-      if (!$this->_therapist) \CRM_Core_Error::statusBounce(ts('Intervenant·e introuvable.'));
+      if (!$this->_therapist) \CRM_Core_Error::statusBounce(ts('Practitioner not found.'));
     }
-    $this->setTitle($this->_id ? ts('Modifier l\'intervenant·e') : ts('Nouvel·le intervenant·e'));
+    $this->setTitle($this->_id ? ts('Edit practitioner') : ts('New practitioner'));
     \CRM\Booking\Utils::setBreadCrumb([[
-      'title' => ts('Intervenant·es'),
+      'title' => ts('Practitioners'),
       'url'   => \CRM_Utils_System::url('civicrm/booking/therapists', 'reset=1'),
     ]]);
   }
 
   public function buildQuickForm(): void {
-    $this->addEntityRef('contact_id', ts('Contact CiviCRM'), [
+    $this->addEntityRef('contact_id', ts('CiviCRM contact'), [
       'api'         => ['params' => ['contact_type' => 'Individual']],
-      'placeholder' => ts('Rechercher un contact…'),
+      'placeholder' => ts('Search for a contact…'),
     ], TRUE);
 
     $this->add('text', 'wp_user_id', ts('WordPress User ID'), ['size' => 8]);
-    $this->add('text', 'color', ts('Couleur agenda (hex)'), ['maxlength' => 7], TRUE);
-    $this->add('text', 'max_advance_days', ts('Réservation max (jours à l\'avance)'), ['size' => 5], TRUE);
-    $this->addRule('max_advance_days', ts('Entier positif requis.'), 'positiveInteger');
-    $this->add('text', 'buffer_minutes', ts('Tampon entre RDV (minutes)'), ['size' => 5], TRUE);
-    $this->addRule('buffer_minutes', ts('Entier requis.'), 'integer');
-    $this->add('checkbox', 'is_active', ts('Actif'));
+    $this->add('text', 'color', ts('Calendar colour (hex)'), ['maxlength' => 7], TRUE);
+    $this->add('text', 'max_advance_days', ts('Max booking (days in advance)'), ['size' => 5], TRUE);
+    $this->addRule('max_advance_days', ts('Positive integer required.'), 'positiveInteger');
+    $this->add('text', 'buffer_minutes', ts('Buffer between appointments (minutes)'), ['size' => 5], TRUE);
+    $this->addRule('buffer_minutes', ts('Integer required.'), 'integer');
+    $this->add('checkbox', 'is_active', ts('Active'));
 
     // Mode de disponibilité, propre à cet intervenant
     $globalMode = (string) Utils::getSetting('availability_mode', 'weekly');
     $globalLabel = $globalMode === 'workdays'
-      ? ts('Jours de travail déclarés')
-      : ts('Horaires hebdomadaires');
-    $this->add('select', 'availability_mode', ts('Mode de disponibilité'), [
-      ''         => ts('Réglage général (%1)', [1 => $globalLabel]),
-      'weekly'   => ts('Horaires hebdomadaires'),
-      'workdays' => ts('Jours de travail déclarés'),
+      ? ts('Declared working days')
+      : ts('Weekly schedule');
+    $this->add('select', 'availability_mode', ts('Availability mode'), [
+      ''         => ts('General setting (%1)', [1 => $globalLabel]),
+      'weekly'   => ts('Weekly schedule'),
+      'workdays' => ts('Declared working days'),
     ]);
 
     // Local habituel
     $locations = \CRM\Booking\BAO\Location::getOptions();
-    $this->add('select', 'default_location_id', ts('Local habituel'),
-      ['' => ts('— Aucun —')] + $locations);
+    $this->add('select', 'default_location_id', ts('Default room'),
+      ['' => ts('— None —')] + $locations);
 
     // Agenda CalDAV
-    $this->add('text', 'calendar_url', ts('URL agenda CalDAV'), [
+    $this->add('text', 'calendar_url', ts('CalDAV calendar URL'), [
       'maxlength'   => 512,
       'size'        => 60,
       'placeholder' => 'https://sync.infomaniak.com/calendars/FK03484/aedd0391-...',
@@ -84,7 +84,7 @@ class Therapist extends \CRM_Core_Form {
       : NULL
     );
 
-    $this->addButtons([['type' => 'submit', 'name' => ts('Enregistrer'), 'isDefault' => TRUE]]);
+    $this->addButtons([['type' => 'submit', 'name' => ts('Save'), 'isDefault' => TRUE]]);
     $this->assign('cancelURL', \CRM_Utils_System::url('civicrm/booking/therapists'));
     $this->assign('recordId', $this->_id);
   }
@@ -121,7 +121,7 @@ class Therapist extends \CRM_Core_Form {
 
     BAOTherapist::save($params);
 
-    \CRM_Core_Session::setStatus(ts('Intervenant·e enregistré·e.'), ts('Succès'), 'success');
+    \CRM_Core_Session::setStatus(ts('Practitioner saved.'), ts('Success'), 'success');
     \CRM_Utils_System::redirect(\CRM_Utils_System::url('civicrm/booking/therapists'));
   }
 }

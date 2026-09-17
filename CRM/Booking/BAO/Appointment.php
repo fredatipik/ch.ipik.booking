@@ -253,7 +253,7 @@ class Appointment {
       $notifier->sendCancellation($appt, $reason);
     }
     catch (\Throwable $e) {
-      \CRM\Booking\Utils::logError('Email d\'annulation échoué', [
+      \CRM\Booking\Utils::logError('Cancellation email failed', [
         'appointment_id' => $id,
         'error'          => $e->getMessage(),
       ]);

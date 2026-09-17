@@ -84,7 +84,7 @@ class Dashlet extends \CRM_Core_Page {
 
       $row['is_today'] = $date === $today;
       $row['is_past']  = $row['start_datetime'] < date('Y-m-d H:i:s');
-      $row['day']      = $row['is_today'] ? ts('Aujourd\'hui') : $this->formatDayFr($start);
+      $row['day']      = $row['is_today'] ? ts('Today') : $this->formatDayFr($start);
       $row['time']     = $start->format('H:i');
       $row['end']      = (new \DateTime($row['end_datetime']))->format('H:i');
       $row['url']      = \CRM_Utils_System::url('civicrm/contact/view', ['cid' => $row['contact_id']]);
@@ -99,8 +99,8 @@ class Dashlet extends \CRM_Core_Page {
    */
   private function formatDayFr(\DateTime $date): string {
     $jours = ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.'];
-    $mois  = ['', 'janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin',
-              'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
+    $mois  = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+              'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     return sprintf(
       '%s %d %s',
       $jours[(int) $date->format('w')],

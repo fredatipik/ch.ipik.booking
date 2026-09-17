@@ -13,9 +13,9 @@ class Availability extends Generic\AbstractEntity {
 
   public static function getInfo(): array {
     return [
-      'title'        => ts('Disponibilité'),
-      'title_plural' => ts('Disponibilités'),
-      'description'  => ts('Disponibilités intervenant·es ch.ipik.practicebooking'),
+      'title'        => ts('Availability'),
+      'title_plural' => ts('Availabilities'),
+      'description'  => ts('ch.ipik.practicebooking practitioner availabilities'),
       'primary_key'  => ['id'],
       'type'         => ['Base'],
       'table_name'   => 'civicrm_booking_availability',

@@ -27,60 +27,60 @@ class Appointment extends \CRM_Core_Form {
   public function preProcess(): void {
     parent::preProcess();
     \CRM_Core_Permission::check('access booking')
-      || \CRM_Core_Error::statusBounce(ts('Accès refusé.'));
+      || \CRM_Core_Error::statusBounce(ts('Access denied.'));
 
     // Pré-sélection possible depuis l'agenda d'un·e intervenant·e
     $this->_therapistId = (int) \CRM_Utils_Request::retrieve('therapist_id', 'Positive', $this, FALSE, 0);
     $this->_contactId   = (int) \CRM_Utils_Request::retrieve('cid', 'Positive', $this, FALSE, 0);
 
-    $this->setTitle(ts('Nouveau rendez-vous'));
+    $this->setTitle(ts('New appointment'));
     Utils::setBreadCrumb();
   }
 
   public function buildQuickForm(): void {
     // ---- Patient ----
-    $this->addEntityRef('contact_id', ts('Patient·e'), [
+    $this->addEntityRef('contact_id', ts('Patient'), [
       'api'         => ['params' => ['contact_type' => 'Individual']],
       'create'      => TRUE,
-      'placeholder' => ts('Rechercher ou créer un contact…'),
+      'placeholder' => ts('Search or create a contact…'),
     ], TRUE);
 
     // ---- Type de rendez-vous ----
     $types = AppointmentType::getOptions();
-    $this->add('select', 'appointment_type_id', ts('Type de rendez-vous'),
-      ['' => ts('— Choisir —')] + $types, TRUE);
+    $this->add('select', 'appointment_type_id', ts('Appointment type'),
+      ['' => ts('— Choose —')] + $types, TRUE);
 
     // ---- Intervenant·e ----
     $therapists = [];
     foreach (Therapist::getAll() as $t) {
       $therapists[$t['id']] = $t['display_name'];
     }
-    $this->add('select', 'therapist_id', ts('Intervenant·e'),
-      ['' => ts('— Choisir —')] + $therapists, TRUE);
+    $this->add('select', 'therapist_id', ts('Practitioner'),
+      ['' => ts('— Choose —')] + $therapists, TRUE);
 
     // ---- Horaire ----
-    $this->add('select', 'slot_mode', ts('Horaire'), [
-      'free'   => ts('Choisir parmi les créneaux disponibles'),
-      'manual' => ts('Saisir une date et une heure'),
+    $this->add('select', 'slot_mode', ts('Schedule'), [
+      'free'   => ts('Choose from available slots'),
+      'manual' => ts('Enter a date and time'),
     ], TRUE);
 
     // Créneaux libres, alimentés en JavaScript
-    $this->add('select', 'slot', ts('Créneau'), ['' => ts('— Choisir un type et un·e intervenant·e —')]);
+    $this->add('select', 'slot', ts('Slot'), ['' => ts('— Choose a type and a practitioner —')]);
 
     // Saisie libre
     $this->add('text', 'manual_date', ts('Date'));
-    $this->add('text', 'manual_time', ts('Heure'));
+    $this->add('text', 'manual_time', ts('Time'));
 
     // Local : déduit par défaut, modifiable explicitement
     $locations = \CRM\Booking\BAO\Location::getOptions();
-    $this->add('select', 'location_id', ts('Local'),
-      ['' => ts('— Déduire automatiquement —'), '0' => ts('Hors local')] + $locations);
+    $this->add('select', 'location_id', ts('Room'),
+      ['' => ts('— Detect automatically —'), '0' => ts('No room')] + $locations);
 
     $this->add('textarea', 'notes', ts('Notes'), ['rows' => 3, 'maxlength' => 500]);
 
-    $this->add('checkbox', 'send_notifications', ts('Envoyer les e-mails de confirmation'));
+    $this->add('checkbox', 'send_notifications', ts('Send confirmation emails'));
 
-    $this->addButtons([['type' => 'submit', 'name' => ts('Créer le rendez-vous'), 'isDefault' => TRUE]]);
+    $this->addButtons([['type' => 'submit', 'name' => ts('Create appointment'), 'isDefault' => TRUE]]);
 
     $this->assign('slotsURL', \CRM_Utils_System::url('civicrm/booking/appointment/slots'));
     $this->assign('cancelURL', $this->returnUrl());
@@ -113,7 +113,7 @@ class Appointment extends \CRM_Core_Form {
 
     if (($values['slot_mode'] ?? 'free') === 'free') {
       if (empty($values['slot'])) {
-        $this->_errors['slot'] = ts('Choisissez un créneau, ou passez en saisie libre.');
+        $this->_errors['slot'] = ts('Choose a slot, or switch to free entry.');
       }
       return empty($this->_errors);
     }
@@ -123,10 +123,10 @@ class Appointment extends \CRM_Core_Form {
     $time = trim($values['manual_time'] ?? '');
 
     if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
-      $this->_errors['manual_date'] = ts('Date attendue au format AAAA-MM-JJ.');
+      $this->_errors['manual_date'] = ts('Expected date format YYYY-MM-DD.');
     }
     if (!preg_match('/^\d{1,2}:\d{2}$/', $time)) {
-      $this->_errors['manual_time'] = ts('Heure attendue au format HH:MM.');
+      $this->_errors['manual_time'] = ts('Expected time format HH:MM.');
     }
 
     return empty($this->_errors);
@@ -144,7 +144,7 @@ class Appointment extends \CRM_Core_Form {
 
     $type = AppointmentType::getById($typeId);
     if (!$type) {
-      \CRM_Core_Session::setStatus(ts('Type de rendez-vous introuvable.'), ts('Erreur'), 'error');
+      \CRM_Core_Session::setStatus(ts('Appointment type not found.'), ts('Error'), 'error');
       \CRM_Utils_System::redirect($this->returnUrl());
     }
 
@@ -187,8 +187,8 @@ class Appointment extends \CRM_Core_Form {
     }
 
     \CRM_Core_Session::setStatus(
-      ts('Rendez-vous du %1 créé.', [1 => Utils::formatDatetime($start)]),
-      ts('Succès'),
+      ts('Appointment on %1 created.', [1 => Utils::formatDatetime($start)]),
+      ts('Success'),
       'success'
     );
     \CRM_Utils_System::redirect($this->returnUrl());

@@ -55,13 +55,13 @@ class BookingShortcode {
       'currentUser' => $currentUser,
       'l10n'        => [
         'selectType'      => __('Choisissez un type de rendez-vous', 'ipik-booking'),
-        'selectDate'      => __('Sélectionnez une date pour voir les créneaux disponibles.', 'ipik-booking'),
-        'selectSlot'      => __('Choisissez un créneau', 'ipik-booking'),
+        'selectDate'      => __('Select a date to see available slots.', 'ipik-booking'),
+        'selectSlot'      => __('Choose a slot', 'ipik-booking'),
         'noSlots'         => MessageService::get(MessageService::NO_SLOTS),
         'loading'         => __('Chargement…', 'ipik-booking'),
-        'errorGeneric'    => __('Une erreur est survenue. Veuillez réessayer.', 'ipik-booking'),
-        'confirmSuccess'  => __('Votre rendez-vous est confirmé ! Un email de confirmation vous a été envoyé.', 'ipik-booking'),
-        'emailRequired'   => __('Veuillez saisir votre email pour vérifier votre éligibilité.', 'ipik-booking'),
+        'errorGeneric'    => __('An error occurred. Please try again.', 'ipik-booking'),
+        'confirmSuccess'  => __('Your appointment is confirmed! A confirmation email has been sent to you.', 'ipik-booking'),
+        'emailRequired'   => __('Please enter your email to verify your eligibility.', 'ipik-booking'),
         'contactNotFound' => MessageService::get(MessageService::CONTACT_NOT_FOUND),
       ],
     ]);
@@ -90,7 +90,7 @@ class BookingShortcode {
         'error' => $e->getMessage(),
         'file'  => $e->getFile() . ':' . $e->getLine(),
       ]);
-      self::sendJson(FALSE, ['message' => 'Impossible de charger les créneaux.']);
+      self::sendJson(FALSE, ['message' => 'Unable to load slots.']);
     }
   }
 
@@ -120,7 +120,7 @@ class BookingShortcode {
     }
     catch (\Throwable $e) {
       Utils::logError('Erreur fatale dans check_email', ['error' => $e->getMessage()]);
-      self::sendJson(FALSE, ['message' => 'Vérification impossible.']);
+      self::sendJson(FALSE, ['message' => 'Verification failed.']);
     }
   }
 
@@ -128,7 +128,7 @@ class BookingShortcode {
     self::verifyNonce();
     $email  = sanitize_email($_POST['email']   ?? '');
     $typeId = intval($_POST['type_id'] ?? 0);
-    if (!$email || !$typeId) self::sendJson(FALSE, ['message' => 'Paramètres manquants.']);
+    if (!$email || !$typeId) self::sendJson(FALSE, ['message' => 'Missing settings.']);
     $gate = MemberGate::check($typeId, $email);
     self::sendJson(TRUE, ['allowed' => $gate['allowed'], 'reason' => $gate['reason']]);
   }
@@ -143,7 +143,7 @@ class BookingShortcode {
         'error' => $e->getMessage(),
         'file'  => $e->getFile() . ':' . $e->getLine(),
       ]);
-      self::sendJson(FALSE, ['message' => 'Une erreur technique est survenue. Veuillez réessayer.']);
+      self::sendJson(FALSE, ['message' => 'A technical error occurred. Please try again.']);
     }
   }
 
@@ -158,7 +158,7 @@ class BookingShortcode {
     $notes         = sanitize_textarea_field($_POST['notes']      ?? '');
 
     if (!$typeId || !$startDatetime || !$email) {
-      self::sendJson(FALSE, ['message' => 'Données manquantes.']);
+      self::sendJson(FALSE, ['message' => 'Missing data.']);
     }
 
     $wpUserId = is_user_logged_in() ? get_current_user_id() : NULL;
@@ -211,7 +211,7 @@ class BookingShortcode {
   private static function verifyNonce(): void {
     $nonce = $_POST['nonce'] ?? $_REQUEST['nonce'] ?? '';
     if (!wp_verify_nonce($nonce, 'ipik_booking_nonce')) {
-      self::sendJson(FALSE, ['message' => 'Sécurité : token invalide.'], 403);
+      self::sendJson(FALSE, ['message' => 'Security: invalid token.'], 403);
     }
   }
 }

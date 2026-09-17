@@ -14,20 +14,20 @@ class WorkdaySave extends \CRM_Core_Page {
 
   public function run(): void {
     \CRM_Core_Permission::check('access booking')
-      || $this->respond(FALSE, ts('Accès refusé.'));
+      || $this->respond(FALSE, ts('Access denied.'));
 
     $therapistId = (int) ($_POST['therapist_id'] ?? 0);
     $date        = trim((string) ($_POST['date'] ?? ''));
     $action      = (string) ($_POST['action_type'] ?? 'set');
 
     if (!$therapistId || !preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
-      $this->respond(FALSE, ts('Paramètres incomplets.'));
+      $this->respond(FALSE, ts('Incomplete settings.'));
     }
 
     try {
       if ($action === 'unset') {
         Workday::remove($therapistId, $date);
-        $this->respond(TRUE, ts('Journée retirée.'), ['selected' => FALSE]);
+        $this->respond(TRUE, ts('Day removed.'), ['selected' => FALSE]);
       }
 
       $startTime = trim((string) ($_POST['start_time'] ?? ''));
@@ -35,10 +35,10 @@ class WorkdaySave extends \CRM_Core_Page {
 
       if (!preg_match('/^\d{1,2}:\d{2}$/', $startTime)
         || !preg_match('/^\d{1,2}:\d{2}$/', $endTime)) {
-        $this->respond(FALSE, ts('Horaires attendus au format HH:MM.'));
+        $this->respond(FALSE, ts('Expected time format HH:MM.'));
       }
       if ($startTime >= $endTime) {
-        $this->respond(FALSE, ts('L\'heure de fin doit suivre l\'heure de début.'));
+        $this->respond(FALSE, ts('End time must be after start time.'));
       }
 
       $locationId = (int) ($_POST['location_id'] ?? 0);
@@ -49,7 +49,7 @@ class WorkdaySave extends \CRM_Core_Page {
         'location_id' => $locationId ?: NULL,
       ]);
 
-      $this->respond(TRUE, ts('Journée enregistrée.'), [
+      $this->respond(TRUE, ts('Day saved.'), [
         'selected'    => TRUE,
         'start'       => $startTime,
         'end'         => $endTime,
@@ -62,7 +62,7 @@ class WorkdaySave extends \CRM_Core_Page {
         'date'         => $date,
         'error'        => $e->getMessage(),
       ]);
-      $this->respond(FALSE, ts('Enregistrement impossible.'));
+      $this->respond(FALSE, ts('Unable to save.'));
     }
   }
 

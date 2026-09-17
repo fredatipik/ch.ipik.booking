@@ -82,9 +82,9 @@ class Utils {
    */
   public static function getSelectorOptions(): array {
     return [
-      'round_robin'  => ts('Round-robin (rotation équitable)'),
-      'least_loaded' => ts('Moins chargé (moins de RDV sur la période)'),
-      'random'       => ts('Aléatoire'),
+      'round_robin'  => ts('Round-robin (fair rotation)'),
+      'least_loaded' => ts('Least busy (fewest appointments in the period)'),
+      'random'       => ts('Random'),
     ];
   }
 
